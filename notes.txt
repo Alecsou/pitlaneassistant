@@ -1,0 +1,8 @@
+pour chaque packet qui arrive : 
+    - décoder le header et créer un headerClass pour mettre les informations dedans
+    - checker le type de packet
+    - décoder le reste en fonction et stocker le packet
+
+besoin :
+    -décodage du header adéquat
+    -table de routage (idpacket => décodage adéquat)
