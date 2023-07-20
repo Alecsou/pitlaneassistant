@@ -1,7 +1,6 @@
 import headerDecode as hd;
 import importAll as ia;
 
-### CHECK case 0/1/2 : mauvais encodage des tableaux !!
 def routeTable(data) :
     data,head = hd.headerDecode(data) 
     id = head.packetId
@@ -23,17 +22,17 @@ def routeTable(data) :
         case 7:
             return ia.packetCarStatusData.decode(data,head)
         case 8:
-            return "Final Classification" 
+            return ia.packetFinalClassificationData.decode(data,head)
         case 9:
-            return "Lobby Info" 
+            return ia.packetLobbyInfoData.decode(data,head)
         case 10:
-            return "Car Damage" 
+            return ia.packetCarDamageData.decode(data,head) 
         case 11:
-            return "Session History" 
+            return ia.packetSessionData.decode(data,head)
         case 12:
-            return "Tyre Sets" 
+            return ia.packetTyreSetData.decode(data,head)
         case 13:
-            return "Motion Ex" 
+            return ia.packetMotionExData.decode(data,head)
         case _:
             return "Error" 
 
