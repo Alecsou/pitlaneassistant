@@ -3,7 +3,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 import parseTypes as pt;
 import classes.sessionPacket.marshalZoneClass as marshalZone;
 import classes.sessionPacket.weatherForecastSampleClass as weatherForecastSample;
-import inspect
+import inspect;
 
 class PacketSessionData:
     def __init__(self,data):
@@ -59,7 +59,7 @@ class PacketSessionData:
         self.numRedFlagPeriods = data[49]
     
     def __str__(self):
-        s=""
+        s="{"
         for i in inspect.getmembers(self):
             if not i[0].startswith('_'):
                 if not inspect.ismethod(i[1]):
@@ -70,8 +70,8 @@ class PacketSessionData:
                         ss+="]"
                     else:
                         ss=str(i[1])
-                    s+=str(i[0])+ " : " +ss+"\n"
-        return s
+                    s+=str(i[0])+ " : " +ss+", "
+        return s+"}"
     
 def decode(data,header):
     packet = [header]

@@ -15,6 +15,8 @@ import classes.eventPacket.startLightsClass as startLights
 import classes.eventPacket.stopGoPenaltyServedClass as stopGoPenaltyServed
 import classes.eventPacket.teamMateInPitsClass as teamMateInPits
 
+import inspect;
+
 class PacketEventData:
     def __init__(self, data):
         self.header = data[0]
@@ -22,7 +24,19 @@ class PacketEventData:
         self.eventDetails = data[2]
     
     def __str__(self):
-        return str(vars(self))
+        s="{"
+        for i in inspect.getmembers(self):
+            if not i[0].startswith('_'):
+                if not inspect.ismethod(i[1]):
+                    if type(i[1]) is list:
+                        ss = "["
+                        for _ in i[1]:
+                            ss+=str(_)+", "
+                        ss+="]"
+                    else:
+                        ss=str(i[1])
+                    s+=str(i[0])+ " : " +ss+", "
+        return s+"}"
 
 def decode(data,header):
     packet = [header]
@@ -30,12 +44,12 @@ def decode(data,header):
     message = []
     decodedMessage=""
     for _ in range(4):
-        data,tmp = pt.getUnsigned(data,8)
+        data,tmp = pt.getChar(data)
         message.append(tmp)
         packet.append(tmp)
     ## Determine which event it is
     for _ in message:
-        decodedMessage+=chr(_)
+        decodedMessage+=_
     match (decodedMessage):
         case "SSTA":
             data,tmp = data,"SSTA"

@@ -1,37 +1,52 @@
 import headerDecode as hd;
 import importAll as ia;
+import rawToBin;
 
 def routeTable(data) :
-    data,head = hd.headerDecode(data) 
-    id = head.packetId
-    match (id) :
-        case 0:
+    size = len(data)
+    data = rawToBin.rawToBin(data)
+    match (size) :
+        case 1349:
+            data, head = hd.headerDecode(data)
             return ia.packetMotionData.decode(data,head)
-        case 1:
+        case 644:
+            data, head = hd.headerDecode(data)
             return ia.packetSessionData.decode(data,head) 
-        case 2:
+        case 1131:
+            data, head = hd.headerDecode(data)
             return ia.packetLapData.decode(data,head) 
-        case 3:
+        case 45:
+            data, head = hd.headerDecode(data)
             return ia.packetEventData.decode(data,head) 
-        case 4:
+        case 1306:
+            data, head = hd.headerDecode(data)
             return ia.packetParticipationData.decode(data,head)
-        case 5:
+        case 1107:
+            data, head = hd.headerDecode(data)
             return ia.packetCarSetupData.decode(data,head) 
-        case 6:
+        case 1352:
+            data, head = hd.headerDecode(data)
             return ia.packetCarTelemetryData.decode(data,head)
-        case 7:
+        case 1239:
+            data, head = hd.headerDecode(data)
             return ia.packetCarStatusData.decode(data,head)
-        case 8:
+        case 1020:
+            data, head = hd.headerDecode(data)
             return ia.packetFinalClassificationData.decode(data,head)
-        case 9:
+        case 1218:
+            data, head = hd.headerDecode(data)
             return ia.packetLobbyInfoData.decode(data,head)
-        case 10:
+        case 953:
+            data, head = hd.headerDecode(data)
             return ia.packetCarDamageData.decode(data,head) 
-        case 11:
+        case 1460:
+            data, head = hd.headerDecode(data)
             return ia.packetSessionData.decode(data,head)
-        case 12:
+        case 231:
+            data, head = hd.headerDecode(data)
             return ia.packetTyreSetData.decode(data,head)
-        case 13:
+        case 217:
+            return "OSEF"
             return ia.packetMotionExData.decode(data,head)
         case _:
             return "Error" 

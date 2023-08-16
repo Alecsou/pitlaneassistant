@@ -3,6 +3,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 import parseTypes as pt;
 import classes.sessionHistoryPacket.lapHistoryDataClass as lapHistoryData;
 import classes.sessionHistoryPacket.tyreStintHistoryDataClass as tyreStintHistoryData;
+import inspect;
 
 class PacketSessionHistoryData:
     def __init__(self,data):
@@ -18,7 +19,19 @@ class PacketSessionHistoryData:
         self.tyreStintsHistoryData = data[9]
     
     def __str__(self):
-        return str(vars(self))
+        s="{"
+        for i in inspect.getmembers(self):
+            if not i[0].startswith('_'):
+                if not inspect.ismethod(i[1]):
+                    if type(i[1]) is list:
+                        ss = "["
+                        for _ in i[1]:
+                            ss+=str(_)+", "
+                        ss+="]"
+                    else:
+                        ss=str(i[1])
+                    s+=str(i[0])+ " : " +ss+", "
+        return s+"}"
 
 def decode(data,header):
     packet = [header]

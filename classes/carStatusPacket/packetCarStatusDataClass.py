@@ -1,14 +1,28 @@
 import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import parseTypes as pt;
-import classes.carStatusPacket.carStatusDataClass as carStatusData
+import classes.carStatusPacket.carStatusDataClass as carStatusData;
+import inspect;
+
 class PacketCarStatusData:
     def __init__(self, data):
         self.header = data[0]
         self.carStatusData = data[1]
     
     def __str__(self):
-        return str(vars(self))
+        s="{"
+        for i in inspect.getmembers(self):
+            if not i[0].startswith('_'):
+                if not inspect.ismethod(i[1]):
+                    if type(i[1]) is list:
+                        ss = "["
+                        for _ in i[1]:
+                            ss+=str(_)+", "
+                        ss+="]"
+                    else:
+                        ss=str(i[1])
+                    s+=str(i[0])+ " : " +ss+", "
+        return s+"}"
 
 def decode(data,header):
     packet = [header]

@@ -9,6 +9,5 @@ sock.bind((UDP_IP, UDP_PORT))
 
 while (True):
     data, addr = sock.recvfrom(4096)
-    newdata=rawToBin.rawToBin(data)
-    decode = routeTable.routeTable(newdata)
+    decode = routeTable.routeTable(rawToBin.rawToBin(data))
     print(decode)
