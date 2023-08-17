@@ -1,7 +1,183 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="utf-8">
+    <title>Test sample</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+    </style>
+
+    <style>
+        #content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            background: #333333;
+        }
+
+        #header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 50px;
+            background: #111111;
+        }
+
+        #circuitInfo {
+            position: absolute;
+            left: 0%;
+            height: 100%;
+            width: 20%;
+        }
+
+        #circuitInfoFlag {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: 5%;
+            height: 50%;
+        }
+
+        #circuitInfoName {
+            height: 50%;
+            width: 95%;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            color: white;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #sessionType {
+            position: absolute;
+            left: 20%;
+            height: 100%;
+            width: 20%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #airTemp {
+            position: absolute;
+            left: 40%;
+            height: 50%;
+            width: 20%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #trackTemp {
+            position: absolute;
+            left: 40%;
+            top: 50%;
+            height: 50%;
+            width: 20%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #lapCount {
+            position: absolute;
+            left: 60%;
+            height: 100%;
+            width: 20%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #clock {
+            position: absolute;
+            left: 80%;
+            height: 100%;
+            width: 20%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        #boxes {
+            width: 100%;
+            height: calc(100% - 50px);
+            position: absolute;
+            top: 50px;
+        }
+        .box {
+            position: absolute;
+            width: calc(100% / 3 - 2px);
+            height: calc(100% / 2 - 1px);
+            border: 1px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Ubuntu', sans-serif;
+            color: #707070;
+        }
+        .top {
+            top: 0;
+        }
+        .left {
+            left: 0;
+        }
+        .mid {
+            left: calc(100% / 3);
+        }
+        .right {
+            right: 0;
+        }
+        .bottom {
+            bottom: 0;
+        }
+    </style>
+
 </head>
-<body>    
+
+<body>
+    <div id="content">
+        <div id="header">
+            <div id="circuitInfo">
+                <div id="circuitInfoFlag">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABLAAAAMgAgMAAABOjnORAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACVBMVEUAJlT////OESaBoDijAAAAAWJLR0QB/wIt3gAAAAd0SU1FB+cHBxMoDdXuqg0AAAPWSURBVHja7dAxDQAACMAwwCP+rWCBi4N0BpY046B+8qgQLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFiCBQsWLFiwBAsWLFiwYAkWLFiwYMESLFiwYMGCJViwYMGCBUuwYMGCBQuWYMGCBQsWLMGCBQsWLFhaNy+qBuoRJpRpAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIzLTA3LTA3VDE5OjQwOjEzKzAwOjAw1SI6kwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNy0wN1QxOTo0MDoxMyswMDowMKR/gi8AAAAASUVORK5CYII="
+                        style="width:25px" />
+                </div>
+                <div id="circuitInfoName"> Circuit Paul Ricard </div>
+            </div>
+            <div id="sessionType">FP1</div>
+            <div id="airTemp">Air Temp. : 25°C</div>
+            <div id="trackTemp">Track Temp. : 42°C</div>
+            <div id="lapCount">Lap 1/44</div>
+            <div id="clock">12:34</div>
+        </div>
+        <div id="boxes">
+            <div class="box top left">Aucune module sélectionné v</div>
+            <div class="box top mid">Aucune module sélectionné v</div>
+            <div class="box top right">Aucune module sélectionné v</div>
+            <div class="box bottom left">Aucune module sélectionné v</div>
+            <div class="box bottom mid">Aucune module sélectionné v</div>
+            <div class="box bottom right">Aucune module sélectionné v</div>
+        </div>
+    </div>
 </body>
+
 </html>
