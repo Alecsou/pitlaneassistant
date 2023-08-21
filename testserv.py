@@ -6,24 +6,16 @@ import json;
 
 app = FastAPI()
 
-html = """
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-        <button onclick="ws.close()"> Disconnect </button>
-        <div id="appendix">
-        </div>
-        <script>
-            var ws = new WebSocket("ws://localhost:8000/ws");
-            ws.onmessage = function(event) {
-                console.log("get");
-            }
-        </script>
-    </body>
-</html>
-"""
+def indexBuilder() :
+    indexFile = open("./index.html","r")
+    scriptFile = open("./index.js","r")
+    index = indexFile.read()
+    script = scriptFile.read()
+    scriptIdx = index.rfind("<script>")
+    newindex = index[:scriptIdx+len("<script>")]+script+index[scriptIdx+len("<script>"):]
+    return newindex
+
+html = indexBuilder()
 
 UDP_IP = "127.0.0.1"
 UDP_PORT = 20777 
