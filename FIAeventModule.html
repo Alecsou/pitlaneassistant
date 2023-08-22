@@ -1,0 +1,45 @@
+<style>
+    .module {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        height: 500px;
+        width: 500px;
+        background: #333333;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .header {
+        position: absolute;
+        width: 100%;
+        height: 15px;
+        background: #666666;
+        color: white;
+    }
+    .message {
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid white;
+        color: white;
+        padding: 2px;
+    }
+    #console {
+        position: absolute;
+        top: 15px;
+        width: 100%;
+        height: calc(100% - 15px);
+    }
+</style>
+
+<div class="module">
+
+    <div class="header">
+        X
+    </div>
+
+    <div id="console">
+        <div class="message">RED FLAG</div>
+        <div class="message">BLACK AND WHITE FLAG for CAR n°1</div>
+    </div>
+
+</div>
