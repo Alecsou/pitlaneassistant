@@ -1,0 +1,269 @@
+<style>
+    .module {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        height: 500px;
+        width: 500px;
+        background: #333333;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .bar-container {
+        position: relative;
+        height: 15px;
+        width: 300px;
+        border: 1px solid white;
+        background: transparent;
+        margin: 10px 15px;
+    }
+    .bar-filler {
+        position: relative;
+        width: 50%;
+        background: #666666;
+        height: 100%;
+    }
+    .bar-value {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        color: white;
+    }
+    .bar-name {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        color: white;
+    }
+    .hidden {
+        display: none !important;
+    }
+    .category-name {
+        color: white;
+        padding: 10px;
+    }
+    .material-symbols-outlined {
+        position: relative;
+        top: 7px;
+    }
+    .header {
+        position: absolute;
+        width: 100%;
+        height: 15px;
+        background: #666666;
+        color: white;
+    }
+    #options {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .option {
+        color: white;
+        background-color: #666666;
+        padding: 5px;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin: 0px 5px 5px;
+    }
+    #content {
+        position: absolute;
+        top: 90px;
+    }
+    .activated {
+        background-color: red;
+    }
+</style>
+
+<div class="module">
+
+    <div class="header">
+        X
+    </div>
+
+    <div id="options">
+        <span class="option activated" onclick="document.getElementById('wing').classList.toggle('hidden');this.classList.toggle('activated');">Aerodynamics</span>
+        <span class="option activated" onclick="document.getElementById('differential').classList.toggle('hidden');this.classList.toggle('activated');">Differential</span>
+        <span class="option activated" onclick="document.getElementById('suspension').classList.toggle('hidden');this.classList.toggle('activated');">Suspension and geometry</span>
+        <span class="option activated" onclick="document.getElementById('brakes').classList.toggle('hidden');this.classList.toggle('activated');">Brakes</span>
+        <span class="option activated" onclick="document.getElementById('tyres').classList.toggle('hidden');this.classList.toggle('activated');">Tyre pressure</span>
+        <span class="option activated" onclick="document.getElementById('fuel').classList.toggle('hidden');this.classList.toggle('activated');">Fuel</span>
+    </div>
+
+    <div id="content">
+        <div id="wing" class="">
+            <span class="category-name">Aerodynamics</span>
+            <div id="front">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Front Wing Aero</span>
+                    <span class="bar-value">50</span>
+                </div>
+            </div>
+            <div id="rear">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Rear Wing Aero</span>
+                    <span class="bar-value">50</span>
+                </div>
+            </div>
+        </div>
+        <div id="differential" class="">
+            <span class="category-name">Differential</span>
+            <div id="onThrottle">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Differential adjustement on throttle</span>
+                    <span class="bar-value">50</span>
+                </div>
+            </div>
+            <div id="offThrottle">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Differential adjustement off throttle</span>
+                    <span class="bar-value">50</span>
+                </div>
+            </div>
+        </div>
+        <div id="suspension" class="">
+            <span class="category-name">Suspension and geometry</span>
+            <div id="frontCamber">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Front camber angle</span>
+                    <span class="bar-value">50</span>
+                </div>  
+            </div>
+            <div id="rearCamber">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Rear camber angle</span>
+                    <span class="bar-value">50</span>
+                </div>  
+            </div>
+            <div id="frontToe">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Front toe angle</span>
+                    <span class="bar-value">50</span>
+                </div>  
+            </div>
+            <div id="rearToe">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Rear toe angle</span>
+                    <span class="bar-value">50</span>
+                </div>  
+            </div>
+            <div id="frontSuspension">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Front suspension</span>
+                    <span class="bar-value">50</span>
+                </div>  
+            </div>
+            <div id="rearSuspension">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Rear suspension</span>
+                    <span class="bar-value">50</span>
+                </div>  
+            </div>
+            <div id="frontAntiRollBar">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Front anti-roll bar</span>
+                    <span class="bar-value">50</span>
+                </div>  
+            </div>
+            <div id="rearAntiRollBar">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Rear anti-roll bar</span>
+                    <span class="bar-value">50</span>
+                </div>  
+            </div>
+            <div id="frontRideHeight">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Front ride height</span>
+                    <span class="bar-value">50</span>
+                </div>  
+            </div>
+            <div id="rearRideHeight">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Rear ride height</span>
+                    <span class="bar-value">50</span>
+                </div>  
+            </div>
+        </div>
+        <div id="brakes" class="">
+            <span class="category-name">Brakes</span>
+            <div id="pressure">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Brake pressure (%)</span>
+                    <span class="bar-value">50</span>
+                </div>  
+            </div>
+            <div id="bias">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Brake bias (%)</span>
+                    <span class="bar-value">50</span>
+                </div> 
+            </div>
+        </div>
+        <div id="tyres" class="">
+            <span class="category-name">Tyre pressure</span>
+            <div id="rearLeftPressure">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">RL Pressure (PSI)</span>
+                    <span class="bar-value">50</span>
+                </div> 
+            </div>
+            <div id="rearRightPressure">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">RR Pressure (PSI)</span>
+                    <span class="bar-value">50</span>
+                </div> 
+            </div>
+            <div id="frontLeftPressure">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">FL Pressure (PSI)</span>
+                    <span class="bar-value">50</span>
+                </div> 
+            </div>
+            <div id="frontRightPressure">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">FR Pressure (PSI)</span>
+                    <span class="bar-value">50</span>
+                </div> 
+            </div>
+        </div>
+        <div id="fuel" class="">
+            <span class="category-name">Fuel</span>
+            <div id="ballast">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Ballast</span>
+                    <span class="bar-value">50</span>
+                </div> 
+            </div>
+            <div id="load">
+                <div class="bar-container">
+                    <div class="bar-filler"></div>
+                    <span class="bar-name">Fuel load</span>
+                    <span class="bar-value">50</span>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
