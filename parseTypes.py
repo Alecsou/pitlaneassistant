@@ -2,6 +2,8 @@
 
 ## Little endian bizarre : si on a \xab \xcd et qu'on veut u16, on prends \xcd\xab et on convertit
 
+import inspect;
+
 def getUnsigned(lst,size):
     div = size//8
     data = lst[:div]
@@ -52,3 +54,20 @@ def getChar(lst):
         res+=i
     return lst[1::],chr(int(res,2))
 
+def getStr(slf):
+    s="{"
+    for i in inspect.getmembers(slf):
+        if not i[0].startswith('_'):
+            if not inspect.ismethod(i[1]):
+                if type(i[1]) is list:
+                    ss = "["
+                    for _ in i[1]:
+                        ss+=str(_)+", "
+                    ss=ss[:-2]
+                    ss+="]"
+                elif "classes" in str(type(i[1])):
+                    ss=str(i[1])
+                else:
+                    ss='"'+str(i[1])+'"'
+                s+='"'+str(i[0])+'"'+ " : " +ss+", "
+    return s[:-2]+"}"

@@ -13,9 +13,31 @@ def indexBuilder() :
     script = scriptFile.read()
     scriptIdx = index.rfind("<script>")
     newindex = index[:scriptIdx+len("<script>")]+script+index[scriptIdx+len("<script>"):]
+    styleFile = open("./index.css","r")
+    style = styleFile.read()
+    styleIdx = newindex.rfind("<style>")
+    newindex = newindex[:styleIdx+len("<style>")]+style+newindex[styleIdx+len("<style>"):]
     return newindex
 
+def include(file,tag):
+    global html
+    incFile = open(file,"r")
+    content = incFile.read()
+    contentIdx = html.rfind(tag)
+    html = html[:contentIdx+len(tag)]+content+html[contentIdx+len(tag):]
+
+def includeHTML(file):
+    global html
+    name = file[2:-5]
+    incFile = open(file,"r")
+    content = "'"+str(repr(incFile.read())[1:-1]).replace(r'\n', ' ')+"'"
+    contentIdx = html.rfind("<script>")
+    html = html[:contentIdx+len("<script>")]+"\n var "+name+"_HTMLFILE = "+content+html[contentIdx+len("<script>"):]
+
 html = indexBuilder()
+includeHTML("./setupModule.html")
+includeHTML("./FIAeventModule.html")
+includeHTML("./moduleSelector.html")
 
 UDP_IP = "127.0.0.1"
 UDP_PORT = 20777 
