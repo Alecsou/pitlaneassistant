@@ -1,4 +1,26 @@
-<div class="selector">
-    <div class="choiceSelector" onclick="showModule(this,setupModule_HTMLFILE)"> setupModule </div>
-    <div class="choiceSelector" onclick="showModule(this,FIAeventModule_HTMLFILE)"> FIAeventModule</div>
+<style>
+    .selectorMODULESELECTOR {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: #333333;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .choiceSelectorMODULESELECTOR {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        color: white;
+        padding: 3px 0;
+        border-bottom: 1px solid white;
+    }
+</style>
+<div class="selectorMODULESELECTOR">
+    <div class="choiceSelectorMODULESELECTOR" onclick="showModule(this,setupModule_HTMLFILE)"> setupModule </div>
+    <div class="choiceSelectorMODULESELECTOR" onclick="showModule(this,FIAeventModule_HTMLFILE)"> FIAeventModule</div>
+    <div class="choiceSelectorMODULESELECTOR" onclick="showModule(this,tyreStatusModule_HTMLFILE)"> tyreStatusModule</div>
+    <div class="choiceSelectorMODULESELECTOR" onclick="showModule(this,weatherModule_HTMLFILE)"> weatherModule</div>
 </div>

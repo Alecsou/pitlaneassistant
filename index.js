@@ -8,9 +8,13 @@ var ws = new WebSocket("ws://localhost:8000/ws");
 function showModuleSelector(t) {
     t.innerHTML = moduleSelector_HTMLFILE;
     t.removeAttribute("onclick");
+    console.log("called");
 }
 
 function showModule(t,moduleVar) {
-    console.log("ouais");
-    t.parentNode.innerHTML = moduleVar;
+    t.parentNode.parentNode.innerHTML = moduleVar;
+}
+
+function leaveModule(module) {
+    showModuleSelector(module.parentNode.parentNode.parentNode);
 }

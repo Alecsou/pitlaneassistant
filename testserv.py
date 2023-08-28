@@ -35,9 +35,12 @@ def includeHTML(file):
     html = html[:contentIdx+len("<script>")]+"\n var "+name+"_HTMLFILE = "+content+html[contentIdx+len("<script>"):]
 
 html = indexBuilder()
+includeHTML("./moduleSelector.html")
 includeHTML("./setupModule.html")
 includeHTML("./FIAeventModule.html")
-includeHTML("./moduleSelector.html")
+includeHTML("./tyreStatusModule.html")
+includeHTML("./weatherModule.html")
+
 
 UDP_IP = "127.0.0.1"
 UDP_PORT = 20777 

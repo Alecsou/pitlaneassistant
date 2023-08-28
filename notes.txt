@@ -27,3 +27,16 @@ Liste fonctionnalités (Fonctionnalité / Difficulté [1-5] / Necessité [1-5] )
     - Condition des pneus et freins / 1 / 5
     - Etat de la voiture / 2 / 5 (Car status + car damage)
     - Allocation des pneumatiques / 2 / 1
+
+Pour les graphs, voir https://www.chartjs.org/docs/latest/
+Bibliothèque opensource pour des graphiques clairs 
+
+
+Timeline :
+
+28/08 > Modifié : setupModule.html (correction erreur CTRL+F)
+                  FIAeventModule.html (correction erreur CTRL+F)
+                  moduleSelector.html (Graphisme minimaliste + mise à la charte)
+                  tyreStatusModule.html (ajout du module)
+                  index.js (suppression console.log)
+                  weatherModule.html (ajout du module)
