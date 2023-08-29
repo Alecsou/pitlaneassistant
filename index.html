@@ -6,7 +6,7 @@
     <title>Test sample</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap');
     </style>
 
     <style>
@@ -132,6 +132,7 @@
             justify-content: center;
             align-items: center;
             font-family: 'Ubuntu', sans-serif;
+            font-weight: 300;
             color: #707070;
         }
         .top {
@@ -150,9 +151,10 @@
             bottom: 0;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Dernière balise script -->
-    <script>
+    <script id='htmlIncluder'>
     </script>
 
     <!-- Dernière balise style -->
@@ -172,8 +174,8 @@
                 <div id="circuitInfoName"> Circuit Paul Ricard </div>
             </div>
             <div id="sessionType">FP1</div>
-            <div id="airTemp">Air Temp. : 25°C</div>
-            <div id="trackTemp">Track Temp. : 42°C</div>
+            <div id="airTemp">Air Temp. : 25&deg;C</div>
+            <div id="trackTemp">Track Temp. : 42&deg;C</div>
             <div id="lapCount">Lap 1/44</div>
             <div id="clock">12:34</div>
         </div>
@@ -187,5 +189,8 @@
         </div>
     </div>
 </body>
+
+<script>
+</script>
 
 </html>

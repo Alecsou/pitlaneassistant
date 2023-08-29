@@ -24,6 +24,8 @@ def include(file,tag):
     incFile = open(file,"r")
     content = incFile.read()
     contentIdx = html.rfind(tag)
+    print(contentIdx)
+    print(tag)
     html = html[:contentIdx+len(tag)]+content+html[contentIdx+len(tag):]
 
 def includeHTML(file):
@@ -31,8 +33,8 @@ def includeHTML(file):
     name = file[2:-5]
     incFile = open(file,"r")
     content = "'"+str(repr(incFile.read())[1:-1]).replace(r'\n', ' ')+"'"
-    contentIdx = html.rfind("<script>")
-    html = html[:contentIdx+len("<script>")]+"\n var "+name+"_HTMLFILE = "+content+html[contentIdx+len("<script>"):]
+    contentIdx = html.rfind("<script id='htmlIncluder'>")
+    html = html[:contentIdx+len("<script id='htmlIncluder'>")]+"\n var "+name+"_HTMLFILE = "+content+html[contentIdx+len("<script id='htmlIncluder'>"):]
 
 html = indexBuilder()
 includeHTML("./moduleSelector.html")
@@ -40,6 +42,8 @@ includeHTML("./setupModule.html")
 includeHTML("./FIAeventModule.html")
 includeHTML("./tyreStatusModule.html")
 includeHTML("./weatherModule.html")
+include("./setupModule.js","<script>")
+include("./weatherModule.js","<script>")
 
 
 UDP_IP = "127.0.0.1"

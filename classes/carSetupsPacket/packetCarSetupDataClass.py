@@ -17,7 +17,7 @@ def decode(data,header):
     tmp = 0
     tab = []
     for _ in range(22):
-        data,tmp = pt.getUnsigned(data,8)
+        data,tmp = carSetupData.decode(data)
         tab.append(tmp)
     packet.append(tab)
     return PacketCarSetupDataClass(packet)
