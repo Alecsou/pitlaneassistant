@@ -4,8 +4,8 @@ pour chaque packet qui arrive :
     - décoder le reste en fonction et stocker le packet
 
 besoin :
-    -décodage du header adéquat
-    -table de routage (idpacket => décodage adéquat)
+    - décodage du header adéquat
+    - table de routage (idpacket => décodage adéquat)
 
 Liste Variables base en permanence sur le PitWall :
     - Track name and country flag
@@ -30,13 +30,3 @@ Liste fonctionnalités (Fonctionnalité / Difficulté [1-5] / Necessité [1-5] )
 
 Pour les graphs, voir https://www.chartjs.org/docs/latest/
 Bibliothèque opensource pour des graphiques clairs 
-
-
-Timeline :
-
-28/08 > Modifié : setupModule.html (correction erreur CTRL+F)
-                  FIAeventModule.html (correction erreur CTRL+F)
-                  moduleSelector.html (Graphisme minimaliste + mise à la charte)
-                  tyreStatusModule.html (ajout du module)
-                  index.js (suppression console.log)
-                  weatherModule.html (ajout du module)

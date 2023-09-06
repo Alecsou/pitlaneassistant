@@ -9,148 +9,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap');
     </style>
 
-    <style>
-        #content {
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            width: 100%;
-            background: #333333;
-        }
-
-        #header {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 50px;
-            background: #111111;
-        }
-
-        #circuitInfo {
-            position: absolute;
-            left: 0%;
-            height: 100%;
-            width: 20%;
-        }
-
-        #circuitInfoFlag {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            left: 5%;
-            height: 50%;
-        }
-
-        #circuitInfoName {
-            height: 50%;
-            width: 95%;
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            color: white;
-            font-family: 'Ubuntu', sans-serif;
-        }
-
-        #sessionType {
-            position: absolute;
-            left: 20%;
-            height: 100%;
-            width: 20%;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Ubuntu', sans-serif;
-        }
-
-        #airTemp {
-            position: absolute;
-            left: 40%;
-            height: 50%;
-            width: 20%;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Ubuntu', sans-serif;
-        }
-
-        #trackTemp {
-            position: absolute;
-            left: 40%;
-            top: 50%;
-            height: 50%;
-            width: 20%;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Ubuntu', sans-serif;
-        }
-
-        #lapCount {
-            position: absolute;
-            left: 60%;
-            height: 100%;
-            width: 20%;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Ubuntu', sans-serif;
-        }
-
-        #clock {
-            position: absolute;
-            left: 80%;
-            height: 100%;
-            width: 20%;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Ubuntu', sans-serif;
-        }
-        #boxes {
-            width: 100%;
-            height: calc(100% - 50px);
-            position: absolute;
-            top: 50px;
-        }
-        .box {
-            position: absolute;
-            width: calc(100% / 3 - 2px);
-            height: calc(100% / 2 - 1px);
-            border: 1px solid #555555;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Ubuntu', sans-serif;
-            font-weight: 300;
-            color: #707070;
-        }
-        .top {
-            top: 0;
-        }
-        .left {
-            left: 0;
-        }
-        .mid {
-            left: calc(100% / 3);
-        }
-        .right {
-            right: 0;
-        }
-        .bottom {
-            bottom: 0;
-        }
-    </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Dernière balise script -->
@@ -180,12 +38,12 @@
             <div id="clock">12:34</div>
         </div>
         <div id="boxes">
-            <div class="box top left" onclick="showModuleSelector(this)">Aucun module s&eacute;lectionn&eacute;</div>
-            <div class="box top mid" onclick="showModuleSelector(this)">Aucun module s&eacute;lectionn&eacute;</div>
-            <div class="box top right" onclick="showModuleSelector(this)">Aucun module s&eacute;lectionn&eacute;</div>
-            <div class="box bottom left" onclick="showModuleSelector(this)">Aucun module s&eacute;lectionn&eacute;</div>
-            <div class="box bottom mid" onclick="showModuleSelector(this)">Aucun module s&eacute;lectionn&eacute;</div>
-            <div class="box bottom right" onclick="showModuleSelector(this)">Aucun module s&eacute;lectionn&eacute;</div>
+            <div class="box top left" onclick="showModule(this,towerModule_HTMLFILE)"></div>
+            <div class="box top mid" onclick="showModule(this,weatherModule_HTMLFILE)"></div>
+            <div class="box top right" onclick="showModule(this,tyreStatusModule_HTMLFILE)"></div>
+            <div class="box bottom left" onclick="showModule(this,setupModule_HTMLFILE)"></div>
+            <div class="box bottom mid" onclick="showModule(this,FIAeventModule_HTMLFILE)"></div>
+            <div class="box bottom right"></div>
         </div>
     </div>
 </body>

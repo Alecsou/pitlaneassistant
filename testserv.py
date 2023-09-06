@@ -42,8 +42,12 @@ includeHTML("./setupModule.html")
 includeHTML("./FIAeventModule.html")
 includeHTML("./tyreStatusModule.html")
 includeHTML("./weatherModule.html")
+includeHTML("./towerModule.html")
 include("./setupModule.js","<script>")
 include("./weatherModule.js","<script>")
+include("./FIAeventModule.js","<script>")
+include("./towerModule.js","<script>")
+include("./tyreStatusModule.js","<script>")
 
 
 UDP_IP = "127.0.0.1"
@@ -62,7 +66,6 @@ async def websocket_endpoint(websocket: WebSocket):
     while True:
         data, addr = sock.recvfrom(4096)
         decode = routeTable.routeTable(data)
-        print(decode)
         await websocket.send_text(str(decode))
 
 

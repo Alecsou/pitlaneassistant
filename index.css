@@ -105,11 +105,27 @@
     align-items: center;
     font-family: 'Ubuntu', sans-serif;
 }
+#menu {
+    position: absolute;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    right: 10px;
+    font-size: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 #boxes {
     width: 100%;
     height: calc(100% - 50px);
     position: absolute;
     top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    color: #707070;
 }
 .box {
     position: absolute;
@@ -120,6 +136,7 @@
     justify-content: center;
     align-items: center;
     font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
     color: #707070;
 }
 .top {
@@ -136,4 +153,7 @@
 }
 .bottom {
     bottom: 0;
+}
+.fullHeight {
+    height: calc(100% - 2px);
 }

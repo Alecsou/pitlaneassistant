@@ -1,6 +1,7 @@
 import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 import parseTypes as pt;
+import specificID as sid;
 import inspect;
 
 class ParticipantData:
@@ -16,6 +17,8 @@ class ParticipantData:
         self.yourTelemetry = data[8]
         self.showOnlineNames = data[9]
         self.platform = data[10]
+        self.teamName = sid.teamID(data[3]) # Not standard packet structure
+        self.teamColor = sid.teamColorsID(data[3]) # Not standard packet structure
     
     def __str__(self):
         return pt.getStr(self)

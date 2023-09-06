@@ -46,16 +46,37 @@ def decode(data):
     packet.append(tmp)
     data,tmp = pt.getUnsigned(data,16)
     packet.append(tmp)
+
+    tab = []
+    for _ in range(4):
+        data,tmp = pt.getUnsigned(data,16)
+        tab.append(tmp)
+    packet.append(tab)
+
+    tab = []
+    for _ in range(4):
+        data,tmp = pt.getUnsigned(data,8)
+        tab.append(tmp)
+    packet.append(tab)
+
+    tab = []
+    for _ in range(4):
+        data,tmp = pt.getUnsigned(data,8)
+        tab.append(tmp)
+    packet.append(tab)
+
     data,tmp = pt.getUnsigned(data,16)
     packet.append(tmp)
-    data,tmp = pt.getUnsigned(data,8)
-    packet.append(tmp)
-    data,tmp = pt.getUnsigned(data,8)
-    packet.append(tmp)
-    data,tmp = pt.getUnsigned(data,16)
-    packet.append(tmp)
-    data,tmp = pt.getFloat(data)
-    packet.append(tmp)
-    data,tmp = pt.getUnsigned(data,8)
-    packet.append(tmp)
+
+    tab = []
+    for _ in range(4):
+        data,tmp = pt.getFloat(data)
+        tab.append(tmp)
+    packet.append(tab)
+
+    tab = []
+    for _ in range(4):
+        data,tmp = pt.getUnsigned(data,8)
+        tab.append(tmp)
+    packet.append(tab)
     return data,CarTelemetryData(packet)

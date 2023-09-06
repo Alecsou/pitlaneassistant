@@ -33,9 +33,22 @@ class CarDamageData:
 def decode(data):
     packet = []
     tmp = 0
-    data,tmp = pt.getFloat(data)
-    packet.append(tmp)
-    for _ in range(20):
+    tab = []
+    for _ in range(4):
+        data,tmp = pt.getFloat(data)
+        tab.append(tmp)
+    packet.append(tab)
+    tab = []
+    for _ in range(4):
+        data,tmp = pt.getUnsigned(data,8)
+        tab.append(tmp)
+    packet.append(tab)
+    tab = []
+    for _ in range(4):
+        data,tmp = pt.getUnsigned(data,8)
+        tab.append(tmp)
+    packet.append(tab)
+    for _ in range(18):
         data,tmp = pt.getUnsigned(data,8)
         packet.append(tmp)
     return data,CarDamageData(packet)

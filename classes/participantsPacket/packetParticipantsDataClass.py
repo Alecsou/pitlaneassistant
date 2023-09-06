@@ -24,5 +24,6 @@ def decode(data,header):
         data,tmp = participantData.decode(data)
         p.append(tmp)
     packet.append(p)
+    print(PacketParticipantData(packet));
     return PacketParticipantData(packet)
     

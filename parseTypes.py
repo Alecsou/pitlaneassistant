@@ -3,6 +3,7 @@
 ## Little endian bizarre : si on a \xab \xcd et qu'on veut u16, on prends \xcd\xab et on convertit
 
 import inspect;
+import struct;
 
 def getUnsigned(lst,size):
     div = size//8
@@ -30,10 +31,8 @@ def getFloat(lst):
     res = ""
     for i in data:
         res+=i
-    frac = 0
-    for j in range(len(res[9::])):
-        frac+=int(res[j])*pow(2,-j)
-    return lst[4::],pow(-1,int(res[0]))*pow(2,int(res[1:9],2)-127)*(1+frac)
+    f = int(res, 2)
+    return lst[4::],round(struct.unpack('f', struct.pack('I', f))[0],3)
 
 def getDouble(lst):
     data = lst[:8]
@@ -41,10 +40,8 @@ def getDouble(lst):
     res = ""
     for i in data:
         res+=i
-    frac = 0
-    for j in range(len(res[12::])):
-        frac+=int(res[j])*pow(2,-j)
-    return lst[8::],pow(-1,int(res[0]))*pow(2,int(res[1:12],2)-127)*(1+frac)
+    f = int(res, 2)
+    return lst[8::],round(struct.unpack('f', struct.pack('I', f))[0],3)
 
 def getChar(lst):
     data = lst[:1]

@@ -7,7 +7,7 @@ import inspect;
 class PacketCarTelemetryData:
     def __init__(self, data):
         self.header = data[0]
-        self.carTelemetrydata = data[1]
+        self.carTelemetryData = data[1]
         self.mfdPanelIndex = data[2]
         self.mfdPanelIndexSecondaryPlayer = data[3]
         self.suggestedGear = data[4]
