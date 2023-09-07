@@ -15,19 +15,19 @@ function updateTower(data) {
             let div = document.createElement("div");
             div.setAttribute("class",className);
             div.textContent = content;
-            additionalTreatement();
+            additionalTreatement(div);
             floor.append(div);
         }
-        buildDiv("teamBarTOWERMODULE","",function () {
+        buildDiv("teamBarTOWERMODULE","",function (div) {
             div.style.backgroundColor = teamcolor;
         });
         buildDiv("driverNameTOWERMODULE",name);
-        buildDiv("gapToNextTOWERMODULE",gaptonext, function () {
+        buildDiv("gapToNextTOWERMODULE",gaptonext, function (div) {
             if (pitting!=0) {
                 div.textContent="";
             }
         });
-        buildDiv("gapToLeaderTOWERMODULE",gaptolead, function () {
+        buildDiv("gapToLeaderTOWERMODULE",gaptolead, function (div) {
             if (pitting!=0) {
                 div.textContent="";
             }
@@ -35,7 +35,7 @@ function updateTower(data) {
         if (pitting!=0) {
             buildDiv("pittingTOWERMODULE","IN PIT");
         }
-        buildDiv("positionTOWERMODULE","P"+pos, function () {
+        buildDiv("positionTOWERMODULE","P"+pos, function (div) {
             let subdiv = document.createElement("div");
             subdiv.setAttribute("class","startPositionTOWERMODULE");
             if (startpos > 0) {
@@ -51,9 +51,10 @@ function updateTower(data) {
         });
         buildDiv("pitNumberTOWERMODULE", "Pits : "+pitnumber);
         buildDiv("lastLapTimeTOWERMODULE",lastlapTime);
-        buildDiv("tyreCompoundTOWERMODULE","", function () {
+        buildDiv("tyreCompoundTOWERMODULE","", function (div) {
             let subdiv = document.createElement("img");
             subdiv.setAttribute("src",tyre);
+            subdiv.setAttribute("style","height:inherit");
             div.append(subdiv);
         });
         ranking[pos]=floor;
@@ -66,7 +67,7 @@ function updateTower(data) {
     }
     let content = document.getElementById("contentTOWERMODULE");
     content.innerHTML = "";
-    for (let j=0; j<ranking.length; j++) {
-        content.append(ranking[j]);
+    for (let j=0; j<participants.length; j++) {
+        if (ranking[j]!= undefined) {content.append(ranking[j]);}
     }
 }

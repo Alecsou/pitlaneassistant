@@ -9,7 +9,7 @@
         overflow-y: auto;
         overflow-x: hidden;
     }
-    .chartWEATHERMODULE {
+    .chartWEATHERMODULE, .infoWEATHERMODULE {
         position: absolute;
         width: 50%;
         height: 50%;
@@ -35,9 +35,49 @@
         bottom: 0;
         border-top: 1px solid white;
     }
+    .weatherWEATHERMODULE {
+        position: absolute;
+        color: white;
+        font-size: 50px;
+        top: 10%;
+        left: 0%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .airTempWEATHERMODULE {
+        position: absolute;
+        color: white;
+        font-size: 20px;
+        top: 45%;
+        left: 0%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .trackTempWEATHERMODULE {
+        position: absolute;
+        color: white;
+        font-size: 20px;
+        top: 70%;
+        left: 0%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
 <div class="moduleWEATHERMODULE">
+    <div class="infoWEATHERMODULE topWEATHERMODULE leftWEATHERMODULE">
+        <div class="weatherWEATHERMODULE"><span class="material-symbols-outlined" style="font-size: inherit;">sunny</span></div>
+        <div class="airTempWEATHERMODULE">Air Temp : 23C</div>
+        <div class="trackTempWEATHERMODULE">Track Temp : 41C</div>
+    </div>
     <div class="chartWEATHERMODULE topWEATHERMODULE rightWEATHERMODULE">
         <canvas class="canvasWEATHERMODULE" id="rainPercentageChart"></canvas>
     </div>

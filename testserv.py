@@ -43,11 +43,13 @@ includeHTML("./FIAeventModule.html")
 includeHTML("./tyreStatusModule.html")
 includeHTML("./weatherModule.html")
 includeHTML("./towerModule.html")
+includeHTML("./damageModule.html")
 include("./setupModule.js","<script>")
 include("./weatherModule.js","<script>")
 include("./FIAeventModule.js","<script>")
 include("./towerModule.js","<script>")
 include("./tyreStatusModule.js","<script>")
+include("./damageModule.js","<script>")
 
 
 UDP_IP = "127.0.0.1"

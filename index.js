@@ -1,9 +1,9 @@
 
 var ws = new WebSocket("ws://localhost:8000/ws");
         ws.onmessage = function(event) {
+            console.log(event.data);
             var data = JSON.parse(event.data);
-            console.log(data.header.packetId);
-            //redirect(data);
+            redirect(data);
         }
 
 var participants;
@@ -11,6 +11,7 @@ var carSetup;
 var carStatus;
 var carTelemetry;
 var carDamage;
+var session;
 
 function showModuleSelector(t) {
     t.innerHTML = moduleSelector_HTMLFILE;
@@ -32,6 +33,8 @@ function redirect(data) {
         case "0": 
             break;
         case "1":
+            session = data;
+            updateWeather();
             break;
         case "2":
             updateTower(data);
@@ -50,6 +53,7 @@ function redirect(data) {
             // Car telemetry
             carTelemetry=data;
             updateTyreStatus();
+            updateDamage();
             break;
         case "7":
             // Car status
@@ -64,6 +68,7 @@ function redirect(data) {
             // Car damage
             carDamage=data;
             updateTyreStatus();
+            updateDamage();
             break;
         case "11":
             break;

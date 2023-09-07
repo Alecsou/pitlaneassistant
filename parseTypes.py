@@ -4,6 +4,7 @@
 
 import inspect;
 import struct;
+import unidecode;
 
 def getUnsigned(lst,size):
     div = size//8
@@ -49,7 +50,21 @@ def getChar(lst):
     res = ""
     for i in data:
         res+=i
-    return lst[1::],chr(int(res,2))
+    if (int(res,2)>=194) and (int(res,2)<=245):
+        first = bytearray(struct.pack('B', int(res,2)))
+        data = lst[:2]
+        data.reverse()
+        data=data[0]
+        res = ""
+        for i in data:
+            res+=i
+        first.append(bytearray(struct.pack('B', int(res,2)))[0])
+        return ["00000000"]+lst[2::],first.decode("utf-8") 
+    else:
+        if int(res,2)==0:
+            return lst[1::],""
+        else :
+            return lst[1::],chr(int(res,2))
 
 def getStr(slf):
     s="{"

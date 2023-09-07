@@ -30,15 +30,11 @@ def decode(data,header):
     packet = [header]
     tmp = 0
     message = []
-    decodedMessage=""
     for _ in range(4):
         data,tmp = pt.getChar(data)
-        message.append(tmp)
-        packet.append(tmp)
-    ## Determine which event it is
-    for _ in message:
-        decodedMessage+=_
-    match (decodedMessage):
+        message+=tmp
+    packet.append(message);
+    match (message):
         case "SSTA":
             data,tmp = data,"SSTA"
             packet.append(tmp)
@@ -96,6 +92,8 @@ def decode(data,header):
         case "OVTK":
             data,tmp = overtake.decode(data)
             packet.append(tmp)
+        case _:
+            packet.append("ERROR")
     return PacketEventData(packet)
         
         
