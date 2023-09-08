@@ -1,4 +1,8 @@
 
+/**
+ * Updates the damage module
+ * Uses the carDamage packet and the carTelemetry packet
+ */
 function updateDamage() {
     if (carDamage==undefined || carTelemetry==undefined) {
         return;

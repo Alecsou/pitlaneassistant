@@ -1,4 +1,8 @@
 
+/**
+ * Updates the tyreStatus module
+ * Uses the carStatus packet, the carTelemetry packet and the carDamage packet
+ */
 function updateTyreStatus() {
     if (carStatus==undefined || carTelemetry==undefined || carDamage==undefined) {
         return;

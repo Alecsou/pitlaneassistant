@@ -3,6 +3,10 @@ var rainPercentageChart;
 var airTempChart;
 var trackTempChart;
 
+/**
+ * Update the weather module
+ * Uses the session packet
+ */
 function updateWeather () {
     if (session==undefined) {
         return;

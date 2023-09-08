@@ -6,6 +6,13 @@ import inspect;
 import struct;
 import unidecode;
 
+##
+#   Decode an unsigend int from his data bytes form to readable int
+#   @param {Array} lst Array of binary data
+#   @param {Int} size Number of bytes to use (8,13 or 32)
+#   @returns {Array} Array of binary data trimed from the treated data
+#   @returns {Int} Treated data
+##
 def getUnsigned(lst,size):
     div = size//8
     data = lst[:div]
@@ -15,6 +22,14 @@ def getUnsigned(lst,size):
         res+=i
     return lst[div::],int(res,2)
 
+
+##
+#   Decode a sigend int from his data bytes form to readable int
+#   @param {Array} lst Array of binary data
+#   @param {Int} size Number of bytes to use (8,13 or 32)
+#   @returns {Array} Array of binary data trimed from the treated data
+#   @returns {Int} Treated data
+##
 def getSigned(lst,size):
     div = size//8
     data = lst[:div]
@@ -25,7 +40,12 @@ def getSigned(lst,size):
             res+=i
     return lst[div::],pow(-1,int(data[0][0]))*(int(res,2))
 
-    
+##
+#   Decode a float32 from his data bytes form to readable float
+#   @param {Array} lst Array of binary data
+#   @returns {Array} Array of binary data trimed from the treated data
+#   @returns {Float} Treated data
+##
 def getFloat(lst):
     data = lst[:4]
     data.reverse()
@@ -35,6 +55,12 @@ def getFloat(lst):
     f = int(res, 2)
     return lst[4::],round(struct.unpack('f', struct.pack('I', f))[0],3)
 
+##
+#   Decode a double64 from his data bytes form to readable float
+#   @param {Array} lst Array of binary data
+#   @returns {Array} Array of binary data trimed from the treated data
+#   @returns {Double} Treated data
+##
 def getDouble(lst):
     data = lst[:8]
     data.reverse()
@@ -44,6 +70,21 @@ def getDouble(lst):
     f = int(res, 2)
     return lst[8::],round(struct.unpack('f', struct.pack('I', f))[0],3)
 
+##
+#   Decode a char (UTF-8) from his data bytes form to readable char
+#   @param {Array} lst Array of binary data
+#   @returns {Array} Array of binary data trimed from the treated data
+#   @returns {char} Treated data
+#
+#   Workaround for accents and all characters that need two bytes
+#   (ex: é = \xC3 \xA9)
+#   If the byte read at first is a leading bytes for a sequence, we transform the int in byte data in Python,
+#   get the next byte in the data structure, and then use the decode method to transform bytearray to char
+#
+#   After it, we return the array of binary data trimmed by the first byte ONLY, and we replace the second byte
+#   by a null byte ("OOOOOOOO")
+#
+##
 def getChar(lst):
     data = lst[:1]
     data.reverse()
@@ -66,6 +107,11 @@ def getChar(lst):
         else :
             return lst[1::],chr(int(res,2))
 
+##
+#   Creates a string that represents a class into a readable and valid JSON
+#   @param {Class} slf Class to stringify
+#   @returns {String} String representing the class as a valid JSON stringified object
+##
 def getStr(slf):
     s="{"
     for i in inspect.getmembers(slf):

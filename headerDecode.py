@@ -1,6 +1,12 @@
 import parseTypes as pt
 import classes.headerClass as header
 
+##
+#   Decode the header from his data bytes form to readable JSON
+#   @param {Array} msg Array of binary data
+#   @returns {Array} Array of binary data trimed from the treated data
+#   @returns {Classes} Treated data under right class format
+##
 def headerDecode(msg) :
     data=[0 for _ in range(0,12)]
     msg,data[0]=pt.getUnsigned(msg,16)

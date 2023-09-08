@@ -1,3 +1,8 @@
+
+/**
+ * Adds an event in the FIAeventModule console
+ * @param {Object} event 
+ */
 function addFIAevent(event) {
     function addMessage(str,code="") {
         let node = document.createElement("div");

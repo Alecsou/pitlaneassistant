@@ -2,6 +2,11 @@ import headerDecode as hd;
 import importAll as ia;
 import rawToBin;
 
+##
+#   Recieves the raw data from the UDP reciever and treats it accordingly
+#   @param {Bytearray} data Bytearray of raw data coming from the UDP reciever
+#   @returns {Class} A class containing the treated data in its right form
+##
 def routeTable(data) :
     size = len(data)
     data = rawToBin.rawToBin(data)

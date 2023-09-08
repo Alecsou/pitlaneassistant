@@ -24,32 +24,30 @@ def include(file,tag):
     incFile = open(file,"r")
     content = incFile.read()
     contentIdx = html.rfind(tag)
-    print(contentIdx)
-    print(tag)
     html = html[:contentIdx+len(tag)]+content+html[contentIdx+len(tag):]
 
 def includeHTML(file):
     global html
-    name = file[2:-5]
+    name = file[file.rfind("/")+1:-5]
     incFile = open(file,"r")
     content = "'"+str(repr(incFile.read())[1:-1]).replace(r'\n', ' ')+"'"
     contentIdx = html.rfind("<script id='htmlIncluder'>")
     html = html[:contentIdx+len("<script id='htmlIncluder'>")]+"\n var "+name+"_HTMLFILE = "+content+html[contentIdx+len("<script id='htmlIncluder'>"):]
 
 html = indexBuilder()
-includeHTML("./moduleSelector.html")
-includeHTML("./setupModule.html")
-includeHTML("./FIAeventModule.html")
-includeHTML("./tyreStatusModule.html")
-includeHTML("./weatherModule.html")
-includeHTML("./towerModule.html")
-includeHTML("./damageModule.html")
-include("./setupModule.js","<script>")
-include("./weatherModule.js","<script>")
-include("./FIAeventModule.js","<script>")
-include("./towerModule.js","<script>")
-include("./tyreStatusModule.js","<script>")
-include("./damageModule.js","<script>")
+includeHTML("./modules/html/moduleSelector.html")
+includeHTML("./modules/html/setupModule.html")
+includeHTML("./modules/html/FIAeventModule.html")
+includeHTML("./modules/html/tyreStatusModule.html")
+includeHTML("./modules/html/weatherModule.html")
+includeHTML("./modules/html/towerModule.html")
+includeHTML("./modules/html/damageModule.html")
+include("./modules/js/setupModule.js","<script>")
+include("./modules/js/weatherModule.js","<script>")
+include("./modules/js/FIAeventModule.js","<script>")
+include("./modules/js/towerModule.js","<script>")
+include("./modules/js/tyreStatusModule.js","<script>")
+include("./modules/js/damageModule.js","<script>")
 
 
 UDP_IP = "127.0.0.1"
