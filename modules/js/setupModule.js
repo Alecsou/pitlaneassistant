@@ -1,5 +1,4 @@
 function showSetupValues() {
-    console.log("Iwascalled");
     let frontwing = document.getElementById("front");
     let rearwing = document.getElementById("rear");
     let diffonthrottle = document.getElementById("onThrottle");

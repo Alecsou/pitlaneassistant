@@ -13,23 +13,23 @@ function updateWeather () {
     }
     function weatherID(id) {
         switch (id) {
-            case 0:
+            case "0":
                 return "sunny";
-            case 1:
+            case "1":
                 return "partly_cloudy_day"
-            case 2:
+            case "2":
                 return "cloud";
-            case 3:
+            case "3":
                 return "rainy_light"
-            case 4:
+            case "4":
                 return "rainy_heavy"
-            case 5:
+            case "5":
                 return "thunderstorm"
         }
     }
-    document.getElementsByClassName("weatherWEATHERMODULE")[0].getElementsByClassName("material-symbols-outlined")[0].textContent = weatherID(session.weather);
-    document.getElementsByClassName("airTempWEATHERMODULE")[0].textContent = "Air Temp : "+session.airTemperature;
-    document.getElementsByClassName("trackTempWEATHERMODULE")[0].textContent = "Track Temp : "+session.trackTemperature;
+    document.getElementsByClassName("weatherWEATHERMODULE")[0].getElementsByClassName("material-symbols-outlined")[0].innerHTML = weatherID(session.weather);
+    document.getElementsByClassName("airTempWEATHERMODULE")[0].innerHTML = "Air Temp : "+session.airTemperature+"&deg;C";
+    document.getElementsByClassName("trackTempWEATHERMODULE")[0].innerHTML = "Track Temp : "+session.trackTemperature+"&deg;C";
     
     var weatherSamples = session.weatherForecastSamples;
     var sessionType = session.sessionType;
@@ -39,10 +39,10 @@ function updateWeather () {
     var trackTemperatures = [];
     for (let e of weatherSamples) {
         if (e.sessionType==sessionType) {
-            times.append(e.timeOffset);
-            rainPercentages.append(e.rainPercentage);
-            airTemperatures.append(e.airTemperature);
-            trackTemperatures.append(e.trackTemperature);
+            times.push(e.timeOffset);
+            rainPercentages.push(e.rainPercentage);
+            airTemperatures.push(e.airTemperature);
+            trackTemperatures.push(e.trackTemperature);
         }
     }
     
@@ -56,7 +56,7 @@ function updateWeather () {
                 data: rainPercentages,
                 fill: false,
                 borderColor: "rgb(75, 192, 192)",
-                tension: 0.1
+                tension: 0.4
             }]
         };
         const configRain = {
@@ -76,7 +76,7 @@ function updateWeather () {
                 data: trackTemperatures,
                 fill: false,
                 borderColor: "rgb(117, 117, 117)",
-                tension: 0.1
+                tension: 0.4
             }]
         };
         const configTrack = {
@@ -96,7 +96,7 @@ function updateWeather () {
                 data: airTemperatures,
                 fill: false,
                 borderColor: "rgb(230, 230, 230)",
-                tension: 0.1
+                tension: 0.4
             }]
         };
         const configAir = {

@@ -24,6 +24,6 @@ def decode(data):
     for _ in range(3):
         data,tmp = pt.getUnsigned(data,8)
         packet.append(tmp)
-    data,tmp = pt.getFloat(data,8)
+    data,tmp = pt.getFloat(data)
     packet.append(tmp)
     return data,SpeedTrap(packet)

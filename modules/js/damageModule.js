@@ -14,16 +14,18 @@ function updateDamage() {
         let green = 255-red;
         e.style.backgroundColor="rgba("+red+","+green+",0,0.5)"
     }
-    modifyPercentage("frontLeftWingDmgDAMAGEMODULE",carDamage.frontLeftWingDamage,"Front Left Wing Damage");
-    modifyPercentage("frontRightWingDmgDAMAGEMODULE",carDamage.frontRightWingDamage,"Front Right Wing Damage");
-    modifyPercentage("floorDmgDAMAGEMODULE",carDamage.floorDamage,"Floor Damage");
-    modifyPercentage("sidepodDmgDAMAGEMODULE",carDamage.sidepodDamage,"Sidepod Damage");
+    dmg = carDamage.carDamageData[carDamage.header.playerCarIndex];
+    tel = carTelemetry.carTelemetryData[carTelemetry.header.playerCarIndex];
+    modifyPercentage("frontLeftWingDmgDAMAGEMODULE",dmg.frontLeftWingDamage,"Front Left Wing Damage");
+    modifyPercentage("frontRightWingDmgDAMAGEMODULE",dmg.frontRightWingDamage,"Front Right Wing Damage");
+    modifyPercentage("floorDmgDAMAGEMODULE",dmg.floorDamage,"Floor Damage");
+    modifyPercentage("sidepodDmgDAMAGEMODULE",dmg.sidepodDamage,"Sidepod Damage");
 
-    let tmp = document.getElementsByClassName("engineTmpDAMAGEMODULE");
-    tmp.textContent = "Engine Temp : "+carTelemetry.engineTemperature+"C";
-    if (carTelemetry.engineTemperature<70) {
+    let tmp = document.getElementsByClassName("engineTmpDAMAGEMODULE")[0];
+    tmp.innerHTML = "Engine Temp : "+tel.engineTemperature+"&deg;C";
+    if (tel.engineTemperature<70) {
         tmp.style.backgroundColor="rgba(0,255,0,0.5)"
-    } else if (carTelemetry.engineTemperature>130) {
+    } else if (tel.engineTemperature>130) {
         tmp.style.backgroundColor="rgba(255,0,0,0.5)"
     } else {
         function getPercentageFill(min,max,value) {
@@ -31,16 +33,16 @@ function updateDamage() {
             var b = min*(-a);
             return a*value+b;
         }
-        let redtmp = getPercentageFill(70,130,carTelemetry.engineTemperature)*255/100;
-        let greentmp = 255-redtemp;
+        let redtmp = getPercentageFill(90,140,tel.engineTemperature)*255/100;
+        let greentmp = 255-redtmp;
         tmp.style.backgroundColor="rgba("+redtmp+","+greentmp+",0,0.5)"
     }
 
-    modifyPercentage("diffuserDmgDAMAGEMODULE",carDamage.diffuserDamage,"Diffuser Damage");
-    modifyPercentage("rearWingDmgDAMAGEMODULE",carDamage.rearWingDamage,"Rear Wing Damage");
+    modifyPercentage("diffuserDmgDAMAGEMODULE",dmg.diffuserDamage,"Diffuser Damage");
+    modifyPercentage("rearWingDmgDAMAGEMODULE",dmg.rearWingDamage,"Rear Wing Damage");
 
     tmp = document.getElementsByClassName("ersDAMAGEMODULE")[0];
-    let fault = carDamage.ersFault;
+    let fault = dmg.ersFault;
     if (fault==0) {
         tmp.textContent = "ERS : OK";
         tmp.style.backgroundColor = "rgba(0,255,0,0.5)";
@@ -53,7 +55,7 @@ function updateDamage() {
     }
 
     tmp = document.getElementsByClassName("drsDAMAGEMODULE")[0];
-    fault = carDamage.drsFault;
+    fault = dmg.drsFault;
     if (fault==0) {
         tmp.textContent = "DRS : OK";
         tmp.style.backgroundColor = "rgba(0,255,0,0.5)";
@@ -65,6 +67,6 @@ function updateDamage() {
         tmp.style.backgroundColor = "rgba(100,100,100,0.5)";
     }
 
-    modifyPercentage("gearboxDmgDAMAGEMODULE",carDamage.gearBoxDamage,"Gearbox Damage");
-    modifyPercentage("engineDmgDAMAGEMODULE",carDamage.engineDamage,"Engine Damage");
+    modifyPercentage("gearboxDmgDAMAGEMODULE",dmg.gearBoxDamage,"Gearbox Damage");
+    modifyPercentage("engineDmgDAMAGEMODULE",dmg.engineDamage,"Engine Damage");
 }

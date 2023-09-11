@@ -11,11 +11,12 @@ function addFIAevent(event) {
         document.getElementById("consoleFIAEVENTMODULE").append(node)
     }
     function timeFormat(time) {
-        var cleanTime = Math.floor(sec);
-        var min = Math.floor(cleanTime/60);
-        var sec = cleanTime%60;
-        var ms = time.toFixed(3);
-        return min+":"+sec+":"+ms
+        var min = Math.floor(time / 60000);
+        var sec = Math.floor((time - min * 60000) / 1000).toString();
+        var ms = (time - (min * 60000) - (sec * 1000)).toString();
+        sec = (sec.length==1)? "0" + sec: sec;
+        ms = (ms.length==2)? "0" + ms : (ms.length==1)? "00" + ms: ms ;
+        return min + ":" + sec + ":" + ms
     }
     switch (event.eventStringCode) {
         case "SSTA":
@@ -67,7 +68,7 @@ function addFIAevent(event) {
             addMessage(" > FLASHBACK ACTIVATED");
             break;  
         case "BUTN":
-            addMessage(" > Button status changed :"+event.eventDetails.buttonStatus);
+            //addMessage(" > Button status changed : "+event.eventDetails.buttonStatus);
             break;
         case "RDFL":
             addMessage(" > RED FLAG ","RDFLFIAEVENTMODULE");

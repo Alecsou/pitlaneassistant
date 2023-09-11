@@ -1,7 +1,8 @@
 
 var ws = new WebSocket("ws://localhost:8000/ws");
         ws.onmessage = function(event) {
-            console.log(event.data);
+            //console.log(event.data);
+            if (event.data=="OSEF") {return;}
             var data = JSON.parse(event.data);
             redirect(data);
         }
@@ -16,11 +17,11 @@ var session;
 function showModuleSelector(t) {
     t.innerHTML = moduleSelector_HTMLFILE;
     t.removeAttribute("onclick");
-    console.log("called");
 }
 
 function showModule(t,moduleVar) {
     t.innerHTML = moduleVar;
+    t.setAttribute("onclick","");
 }
 
 function leaveModule(module) {

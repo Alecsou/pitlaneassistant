@@ -29,7 +29,7 @@ class PacketEventData:
 def decode(data,header):
     packet = [header]
     tmp = 0
-    message = []
+    message = ""
     for _ in range(4):
         data,tmp = pt.getChar(data)
         message+=tmp

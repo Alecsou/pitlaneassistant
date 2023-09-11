@@ -10,7 +10,6 @@ var wetTyreImg = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACa
  * @param {Object} data 
  */
 function updateTower(data) {
-    console.log(participants);
     var ranking = Array(participants.length).fill(undefined);
     function buildFloor(name,teamcolor,gaptonext,gaptolead,pos,pitnumber,startpos,pitting,lastlapTime,tyre) {
         let floor = document.createElement("div");
@@ -25,7 +24,7 @@ function updateTower(data) {
         buildDiv("teamBarTOWERMODULE","",function (div) {
             div.style.backgroundColor = teamcolor;
         });
-        buildDiv("driverNameTOWERMODULE",name.upper());
+        buildDiv("driverNameTOWERMODULE",name.toUpperCase());
         buildDiv("gapToNextTOWERMODULE",gaptonext, function (div) {
             if (pitting!=0) {
                 div.textContent="";
@@ -63,15 +62,27 @@ function updateTower(data) {
         });
         ranking[pos]=floor;
     }
+    function timeFormat(time) {
+        var min = Math.floor(time / 60000);
+        var sec = Math.floor((time - min * 60000) / 1000).toString();
+        var ms = (time - (min * 60000) - (sec * 1000)).toString();
+        sec = (sec.length==1)? "0" + sec: sec;
+        ms = (ms.length==2)? "0" + ms : (ms.length==1)? "00" + ms: ms ;
+        return min + ":" + sec + ":" + ms
+    }
     for (let i=0; i<participants.length; i++) {
         let fullData = data.lapData[i];
-        buildFloor(participants[i].name.substring(0,3),participants[i].teamColor,fullData.deltaToCarInFrontInMS,
-        fullData.deltaToRaceLeaderInMS,fullData.carPosition,fullData.numPitStops,fullData.gridPosition,
-        fullData.pitStatus, fullData.lastLapTimeInMS, softTyreImg);
+        if (participants[i].name!=""){
+            buildFloor(participants[i].name.substring(0,3),participants[i].teamColor,timeFormat(fullData.deltaToCarInFrontInMS),
+            timeFormat(fullData.deltaToRaceLeaderInMS),fullData.carPosition,fullData.numPitStops,fullData.gridPosition,
+            fullData.pitStatus, timeFormat(fullData.lastLapTimeInMS), softTyreImg);
+        }
     }
     let content = document.getElementById("contentTOWERMODULE");
     content.innerHTML = "";
     for (let j=0; j<participants.length; j++) {
-        if (ranking[j]!= undefined) {content.append(ranking[j]);}
+        if (ranking[j]!= undefined) {
+            content.append(ranking[j]);
+        }
     }
 }
