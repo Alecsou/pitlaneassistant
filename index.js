@@ -36,6 +36,7 @@ function redirect(data) {
         case "1":
             session = data;
             updateWeather();
+            updateHeader();
             break;
         case "2":
             updateTower(data);

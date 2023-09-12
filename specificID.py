@@ -1106,3 +1106,34 @@ def teamColorsID(id):
             return "#FFFFFF"
         case _:
             return "Invalid ID"
+
+def sessionTypeID(id):
+    match(id):
+        case 0:
+            return "Unknown"
+        case 1:
+            return "FP1"
+        case 2:
+            return "FP2"
+        case 3:
+            return "FP3"
+        case 4:
+            return "FP"
+        case 5:
+            return "Q1"
+        case 6:
+            return "Q2"
+        case 7:
+            return "Q3"
+        case 8:
+            return "SQ"
+        case 9:
+            return "OSQ"
+        case 10:
+            return "R"
+        case 11:
+            return "R2"
+        case 12:
+            return "R3"
+        case 13:
+            return "TT"

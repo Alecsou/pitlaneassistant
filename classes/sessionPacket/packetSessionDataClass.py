@@ -57,6 +57,9 @@ class PacketSessionData:
         self.numSafetyCarPeriods = data[47]
         self.numVirtualSafetyCarPeriods = data[48]
         self.numRedFlagPeriods = data[49]
+        self.trackName = trackID(data[7])
+        self.trackFlag = trackFlagsID(data[7])
+        self.sessionTypeName = sessionTypeID(data[6])
     
     def __str__(self):
         return pt.getStr(self)
