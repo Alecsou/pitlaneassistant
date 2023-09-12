@@ -24,8 +24,8 @@ Clone this repository into the folder of your choice.
 
 ## Usage
 
-Type '''uvicorn testserv:app''' in a terminal while being at the. 
-Open your favorite navigator and go to '''localhost''' to find your dashboard ready to go !
+Type ```uvicorn testserv:app``` in a terminal while being at the. 
+Open your favorite navigator and go to ```localhost``` to find your dashboard ready to go !
 
 ---
 
