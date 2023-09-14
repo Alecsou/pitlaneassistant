@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/Alecsou/pitlaneassistant/blob/main/PLA.png" style="width:200px;">
+</p>
+
 Pit Lane Assistant (PLA)
 ============
 [![GitHub Stars](https://img.shields.io/github/stars/Alecsou/pitlaneassistant.svg)](https://github.com/Alecsou/pitlaneassistant/stargazers)  [![Current Version](https://img.shields.io/badge/version-0.0.1-limegreen.svg)](https://github.com/Alecsou/pitlaneassistant) 
