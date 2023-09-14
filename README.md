@@ -20,6 +20,10 @@ PLA is an open-source engineer dashboard for F123 League Engineers willing to ta
 
 Clone this repository into the folder of your choice.
 
+### Windows :
+
+Execute the ```setup.bat``` file beforehand to install all of the dependencies.
+
 ---
 
 ## Usage
