@@ -13,6 +13,7 @@ var carStatus;
 var carTelemetry;
 var carDamage;
 var session;
+var lapData;
 
 function showModuleSelector(t) {
     t.innerHTML = moduleSelector_HTMLFILE;
@@ -39,7 +40,8 @@ function redirect(data) {
             updateHeader();
             break;
         case "2":
-            updateTower(data);
+            lapData = data
+            updateTower(lapData);
             break;
         case "3":
             addFIAevent(data);
