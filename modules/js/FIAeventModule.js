@@ -8,7 +8,7 @@ function addFIAevent(event) {
         let node = document.createElement("div");
         node.setAttribute("class","messageFIAEVENTMODULE "+code);
         node.textContent = str;
-        document.getElementById("consoleFIAEVENTMODULE").append(node)
+        document.getElementById("consoleFIAEVENTMODULE").prepend(node);
     }
     function timeFormat(time) {
         var min = Math.floor(time / 60000);
@@ -47,7 +47,7 @@ function addFIAevent(event) {
             addMessage(" > Race Winner : CAR index "+event.eventDetails.vehicleIdx,"RCWNFIAEVENTMODULE");
             break;
         case "PENA":
-            addMessage(" > Penalty : CAR index "+event.eventDetails.vehicleIdx+", "+ event.eventDetails.infrigementType+", "+event.eventDetails.penaltyType, "PENAFIAEVENTMODULE");
+            addMessage(" > Penalty : CAR index "+event.eventDetails.vehicleIdx+", "+ event.eventDetails.infringementType+", "+event.eventDetails.penaltyType, "PENAFIAEVENTMODULE");
             break;
         case "SPTP":
             addMessage(" > Speed trap : CAR index "+event.eventDetails.vehicleIdx+", "+event.eventDetails.speed+" km/h");
@@ -74,7 +74,7 @@ function addFIAevent(event) {
             addMessage(" > RED FLAG ","RDFLFIAEVENTMODULE");
             break;
         case "OVTK":
-            addMessage(" > Overtake : CAR index "+event.eventDetails.overtakingVehicleIdx+" on CAR index "+event.eventDetails.beingOvertakenVehicleIndex);
+            addMessage(" > Overtake : CAR index "+event.eventDetails.overtakingVehicleIdx+" on CAR index "+event.eventDetails.beingOvertakenVehicleIdx);
             break;
     }
 }

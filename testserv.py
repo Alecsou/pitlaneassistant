@@ -42,12 +42,17 @@ includeHTML("./modules/html/tyreStatusModule.html")
 includeHTML("./modules/html/weatherModule.html")
 includeHTML("./modules/html/towerModule.html")
 includeHTML("./modules/html/damageModule.html")
+includeHTML("./modules/html/carStatusModule.html")
+includeHTML("./modules/html/clockMapModule.html")
 include("./modules/js/setupModule.js","<script>")
 include("./modules/js/weatherModule.js","<script>")
 include("./modules/js/FIAeventModule.js","<script>")
 include("./modules/js/towerModule.js","<script>")
 include("./modules/js/tyreStatusModule.js","<script>")
 include("./modules/js/damageModule.js","<script>")
+include("./modules/js/carStatusModule.js","<script>")
+include("./modules/js/clockMapModule.js","<script>")
+include("./modules/js/header.js","<script>")
 
 
 UDP_IP = "127.0.0.1"

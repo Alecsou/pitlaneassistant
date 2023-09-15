@@ -1,4 +1,24 @@
 
+function realTyreId(id) {
+    switch (id) {
+        case "7":
+            return "Inter";
+        case "8":
+            return "Wet";
+        case "16":
+            return "C5";
+        case "17":
+            return "C4";
+        case "18":
+            return "C3";
+        case "19":
+            return "C2";
+        case "20":
+            return "C1";
+        case "21":
+            return "C0";
+    }
+}
 /**
  * Updates the tyreStatus module
  * Uses the carStatus packet, the carTelemetry packet and the carDamage packet
@@ -19,8 +39,8 @@ function updateTyreStatus() {
                 tyre.getElementsByClassName(bigclass)[0].innerHTML = value;
             }
         }
-        modifyElement("actualCompoundTYRESTATUSMODULE",status.actualTyreCompound,false);
-        modifyElement("visualCompoundTYRESTATUSMODULE",status.visualTyreCompound,false);
+        modifyElement("actualCompoundTYRESTATUSMODULE",realTyreId(status.actualTyreCompound),false);
+        tyre.getElementsByClassName("visualCompoundTYRESTATUSMODULE")[0].setAttribute("src",tyreID(status.visualTyreCompound));
         modifyElement("brakeTempTYRESTATUSMODULE",telemetry.brakesTemperature[tyreIdx]+" &deg;C");
         modifyElement("tyreSurfaceTempTYRESTATUSMODULE",telemetry.tyresSurfaceTemperature[tyreIdx]+" &deg;C");
         modifyElement("tyreInnerTempTYRESTATUSMODULE",telemetry.tyresInnerTemperature[tyreIdx]+" &deg;C");

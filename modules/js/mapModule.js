@@ -1,4 +1,0 @@
-
-function updateMap() {
-    return;
-}

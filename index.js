@@ -36,9 +36,10 @@ function redirect(data) {
             break;
         case "1":
             session = data;
-            updateWeather();
+            //updateWeather();
             updateHeader();
             updateClockMap();
+            updateCarStatus();
             break;
         case "2":
             lapData = data
@@ -53,7 +54,7 @@ function redirect(data) {
             break;
         case "5":
             carSetup = data.carSetups[data.header.playerCarIndex];
-            showSetupValues();
+            //showSetupValues();
             break;
         case "6":
             // Car telemetry
@@ -65,6 +66,7 @@ function redirect(data) {
             // Car status
             carStatus=data;
             updateTyreStatus();
+            updateCarStatus();
             break;
         case "8":
             break;

@@ -12,12 +12,11 @@ function updateHeader() {
         return h+":"+m+":"+s;
     }
     var currentLap = lapData.lapData.map((e)=>e.currentLapNum).reduce((p,n)=>((p<n)?n:p));
-    let header = document.getElementById("header");
-    header.getElementById("circuitInfo").getElementById("circuitInfoFlag").getElementsByTagName("img")[0].setAttribute("src",session.trackflag);
-    header.getElementById("circuitInfo").getElementById("circuitInfoName").innerHTML=session.trackName;
-    header.getElementById("sessionType").innerHTML=session.sessionTypeName;
-    header.getElementById("airTemp").innerHTML="Air Temp. : "+session.airTemperature+"&deg;C";
-    header.getElementById("trackTemp").innerHTML="Track Temp. : "+session.trackTemperature+"&deg;C";
-    header.getElementById("lapCount").innerHTML="Lap "+currentLap+"/"+session.totalLaps;
-    header.getElementById("clock").innerHTML=timeFormat(session.sessionTimeLeft);
+    document.getElementById("circuitInfoFlag").getElementsByTagName("img")[0].setAttribute("src",session.trackFlag);
+    document.getElementById("circuitInfoName").innerHTML=session.trackName;
+    document.getElementById("sessionType").innerHTML=session.sessionTypeName;
+    document.getElementById("airTemp").innerHTML="Air Temp. : "+session.airTemperature+"&deg;C";
+    document.getElementById("trackTemp").innerHTML="Track Temp. : "+session.trackTemperature+"&deg;C";
+    document.getElementById("lapCount").innerHTML="Lap "+currentLap+"/"+session.totalLaps;
+    document.getElementById("clock").innerHTML=timeFormat(session.sessionDuration);
 }
