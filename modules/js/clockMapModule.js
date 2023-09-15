@@ -60,3 +60,25 @@ function updateClockMap(){
     }
 }
 
+function updateDriverLine() {
+    if (session==undefined || lapData==undefined || participants==undefined) {
+        return;
+    }
+    var lapLength = session.trackLength;
+    var bar = document.getElementsByClassName("verticalBarCLOCKMAPMODULE")[0];
+    bar.innerHTML = "";
+    participants.forEach(e => {
+        var lapDistance = lapData.lapData[participants.indexOf(e)].lapDistance;
+        var pctg = ((lapDistance/lapLength)*100).toFixed(2);
+        var point = document.createElement("div");
+        point.setAttribute("class","driverCLOCKMAPMODULE");
+        point.style.backgroundColor = e.teamColor;
+        point.style.top = "calc("+pctg+"% - 10px)";
+        var name = document.createElement("div");
+        name.setAttribute("class","driverNameCLOCKMAPMODULE");
+        name.innerHTML = e.name.substring(0,3);
+        point.append(name);
+        bar.append(point);
+    });
+}
+

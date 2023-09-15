@@ -2,10 +2,10 @@
 <style>
     .moduleCLOCKMAPMODULE {
         position: absolute;
-        top: 0px;
-        left: 0px;
-        height: 100%;
-        width: 100%;
+        top: 50px;
+        left: 50px;
+        height: 400px;
+        aspect-ratio: 3 / 2;
         background: #333333;
         overflow-y: auto;
         overflow-x: hidden;
@@ -14,8 +14,38 @@
         position: absolute;
         height: 300px;
         aspect-ratio: 1 / 1;
-        top: calc(100% / 8);
+        top: calc((100% - 300px) / 2);
         left: 30px;
+    }
+    .radarCLOCKMAPMODULE {
+        position: absolute;
+        width: 20%;
+        height: 100%;
+        right: 30px;
+    }
+    .verticalBarCLOCKMAPMODULE {
+        position: absolute;
+        width: 0;
+        height: 100%;
+        border: 1px solid white;
+        right: calc(50% - 1px);
+    }
+    .driverCLOCKMAPMODULE {
+        position: absolute;
+        overflow: visible;
+        height: 20px;
+        aspect-ratio: 1 / 1;
+        top: calc(100% - 10px);
+        border-radius: 20px;
+        background: transparent;
+        left: -10px;
+        display: flex;
+        align-items: center;
+    }
+    .driverNameCLOCKMAPMODULE {
+        position: absolute;
+        color: white;
+        left: calc(100% + 5px);
     }
 </style>
 
@@ -24,5 +54,9 @@
 <div class="moduleCLOCKMAPMODULE">
     <div class="clockCLOCKMAPMODULE">
         <canvas id="clockMapPosts"></canvas>
+    </div>
+    <div class="radarCLOCKMAPMODULE">
+        <div class="verticalBarCLOCKMAPMODULE">
+        </div>
     </div>
 </div>

@@ -38,10 +38,12 @@ function redirect(data) {
             session = data;
             updateWeather();
             updateHeader();
+            updateClockMap();
             break;
         case "2":
             lapData = data
             updateTower(lapData);
+            updateDriverLine();
             break;
         case "3":
             addFIAevent(data);
