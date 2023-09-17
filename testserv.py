@@ -55,8 +55,8 @@ include("./modules/js/clockMapModule.js","<script>")
 include("./modules/js/header.js","<script>")
 
 
-UDP_IP = "127.0.0.1"
-UDP_PORT = 20777 
+UDP_IP = "192.168.1.65"
+UDP_PORT = 45023
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((UDP_IP, UDP_PORT))
 
