@@ -41,17 +41,18 @@ function updateCarStatus() {
             sc.innerHTML = "FL";
             break;
     }
-    document.getElementsByClassName("fuelGaugeIndicatorCARSTATUSMODULE")[0].style.width = Math.max((status.fuelInTank / status.fuelCapacity)*100,100)+"%";
-    document.getElementsByClassName("fuelValueCARSTATUSMODULE")[0].innerHTML = status.fuelInTank+"/"+status.fuelCapacity+"("+status.fuelRemainingLaps+")";
+    var MAXERS = 4000000
+    document.getElementsByClassName("fuelGaugeIndicatorCARSTATUSMODULE")[0].style.width = ((status.fuelInTank / status.fuelCapacity)*100).toFixed(1)+"%";
+    document.getElementsByClassName("fuelValueCARSTATUSMODULE")[0].innerHTML = status.fuelInTank.toFixed(2)+"/"+status.fuelCapacity.toFixed(2)+"("+status.fuelRemainingLaps.toFixed(2)+")";
 
-    document.getElementsByClassName("ERSdeployGaugeIndicatorCARSTATUSMODULE")[0].style.width = Math.max((status.ersDeployedThisLap/1000000),100)+"%";
-    document.getElementsByClassName("ERSdeployValueCARSTATUSMODULE")[0].innerHTML = status.ersDeployedThisLap+" J";
+    document.getElementsByClassName("ERSdeployGaugeIndicatorCARSTATUSMODULE")[0].style.width = ((status.ersDeployedThisLap/MAXERS)*100).toFixed(1)+"%";
+    document.getElementsByClassName("ERSdeployValueCARSTATUSMODULE")[0].innerHTML = ((status.ersDeployedThisLap/MAXERS)*100).toFixed(1)+"%";
 
-    document.getElementsByClassName("ERSharvestGaugeIndicatorCARSTATUSMODULE")[0].style.width = Math.max(((status.ersHavrvestedThisLapMGUK+status.ersHavrvestedThisLapMGUH)/1000000),100)+"%";
-    document.getElementsByClassName("ERSharvestValueCARSTATUSMODULE")[0].innerHTML = (status.ersHavrvestedThisLapMGUK+status.ersHavrvestedThisLapMGUH)+" J";
+    document.getElementsByClassName("ERSharvestGaugeIndicatorCARSTATUSMODULE")[0].style.width = (((status.ersHarvestedThisLapMGUK+status.ersHarvestedThisLapMGUH)/MAXERS)*100).toFixed(1)+"%";
+    document.getElementsByClassName("ERSharvestValueCARSTATUSMODULE")[0].innerHTML = (((status.ersHarvestedThisLapMGUK+status.ersHarvestedThisLapMGUH)/MAXERS)*100).toFixed(1)+"%";
 
-    document.getElementsByClassName("ERSstoredGaugeIndicatorCARSTATUSMODULE")[0].style.width = Math.max((status.ersStoreEnergy/1000000),100)+"%";
-    document.getElementsByClassName("ERSstoredValueCARSTATUSMODULE")[0].innerHTML = status.ersStoreEnergy+" J";
+    document.getElementsByClassName("ERSstoredGaugeIndicatorCARSTATUSMODULE")[0].style.width = ((status.ersStoreEnergy/MAXERS)*100).toFixed(1)+"%";
+    document.getElementsByClassName("ERSstoredValueCARSTATUSMODULE")[0].innerHTML = ((status.ersStoreEnergy/MAXERS)*100).toFixed(1)+"%";
 
     var deploy = document.getElementsByClassName("ERSdeployModeCARSTATUSMODULE")[0];
     switch (status.ersDeployMode) {
