@@ -69,7 +69,11 @@ function updateDriverLine() {
     var bar = document.getElementsByClassName("verticalBarCLOCKMAPMODULE")[0];
     bar.innerHTML = "";
     participants.forEach(e => {
-        var lapDistance = lapData.lapData[participants.indexOf(e)].lapDistance;
+        var ld = lapData.lapData[participants.indexOf(e)];
+        if (ld.driverStatus==0 || (ld.resultStatus!=2 && ld.resultStatus!=3)) {
+            return;
+        }
+        var lapDistance = ld.lapDistance;
         var pctg = ((lapDistance/lapLength)*100).toFixed(2);
         var point = document.createElement("div");
         point.setAttribute("class","driverCLOCKMAPMODULE");
