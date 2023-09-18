@@ -10,13 +10,12 @@ function addFIAevent(event) {
         node.textContent = str;
         document.getElementById("consoleFIAEVENTMODULE").prepend(node);
     }
-    function timeFormat(time) {
-        var min = Math.floor(time / 60000);
-        var sec = Math.floor((time - min * 60000) / 1000).toString();
-        var ms = (time - (min * 60000) - (sec * 1000)).toString();
-        sec = (sec.length==1)? "0" + sec: sec;
-        ms = (ms.length==2)? "0" + ms : (ms.length==1)? "00" + ms: ms ;
-        return min + ":" + sec + ":" + ms
+    function timeFormat(time){
+        var ms = (time - Math.floor(time)).toFixed(3).substring(1);
+        var s = (Math.floor(time)%60).toString();
+        var m = Math.floor((Math.floor(time)/60));
+        s=(s.length==1)?"0"+s:s;
+        return m+":"+s+ms;
     }
     switch (event.eventStringCode) {
         case "SSTA":
@@ -47,7 +46,7 @@ function addFIAevent(event) {
             addMessage(" > Race Winner : CAR index "+event.eventDetails.vehicleIdx,"RCWNFIAEVENTMODULE");
             break;
         case "PENA":
-            addMessage(" > Penalty : CAR index "+event.eventDetails.vehicleIdx+", "+ event.eventDetails.infringementType+", "+event.eventDetails.penaltyType, "PENAFIAEVENTMODULE");
+            addMessage(" > Penalty : CAR index "+event.eventDetails.vehicleIdx+", "+ event.eventDetails.infringementName+", "+event.eventDetails.penaltyName, "PENAFIAEVENTMODULE");
             break;
         case "SPTP":
             addMessage(" > Speed trap : CAR index "+event.eventDetails.vehicleIdx+", "+event.eventDetails.speed+" km/h");
