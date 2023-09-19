@@ -67,7 +67,7 @@
         align-items: center;
         font-size: 15px;
     }
-    .positionTOWERMODULE {
+    .positionTOWERMODULE, .lastLapPracticeTOWERMODULE {
         position: absolute;
         height: 100%;
         display: flex;
@@ -90,7 +90,7 @@
         align-items: center;
         font-size: 15px;
     }
-    .lastLapTimeTOWERMODULE {
+    .lastLapTimeTOWERMODULE, .bestLapQualiTOWERMODULE, .bestLapPracticeTOWERMODULE {
         position: absolute;
         height: 100%;
         display: flex;
@@ -121,6 +121,24 @@
         justify-content: center;
         align-items: center;
         font-size: 15px;
+    }
+    
+    .positionPracticeTOWERMODULE {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        top: 0%;
+        left: calc(1% + 15px + 1% + 110px + 60px + 70px + 70px);
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+    }
+    
+    .statusTOWERMODULE {
+        position: absolute;
+        right: 8%;
+        height: 80%;
+        top: 10%;
     }
 </style>
 
@@ -163,10 +181,9 @@
             <div class="driverNameTOWERMODULE"> SOU </div>
             <div class="gapToNextTOWERMODULE"> +1.234 </div>
             <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
+            <div class="positionTOWERMODULE">P2</div>
+            <div class="statusTOWERMODULE">out</div>
+            <div class="bestLapQualiTOWERMODULE">1:53:456</div>
             <div class="tyreCompoundTOWERMODULE"></div>
         </div>
         <div class="floorTOWERMODULE">
@@ -174,175 +191,10 @@
             <div class="driverNameTOWERMODULE"> SOU </div>
             <div class="gapToNextTOWERMODULE"> +1.234 </div>
             <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
-            <div class="tyreCompoundTOWERMODULE"></div>
-        </div>
-        <div class="floorTOWERMODULE">
-            <div class="teamBarTOWERMODULE"></div>
-            <div class="driverNameTOWERMODULE"> SOU </div>
-            <div class="gapToNextTOWERMODULE"> +1.234 </div>
-            <div class="gapToLeaderTOWERMODULE"> +5.678 </div>
-            <div class="positionTOWERMODULE">P1 &nbsp;<div class="startPositionTOWERMODULE">+2</div> </div>
-            <div class="pitNumberTOWERMODULE">Pits : 0</div>
-            <div class="lastLapTimeTOWERMODULE">1:56:456</div>
-            <div class="lastLapsChartTOWERMODULE"></div>
+            <div class="positionPracticeTOWERMODULE">P2</div>
+            <div class="statusTOWERMODULE">out</div>
+            <div class="bestLapPracticeTOWERMODULE">1:53:456</div>
+            <div class="lastLapPracticeTOWERMODULE">1:58:456</div>
             <div class="tyreCompoundTOWERMODULE"></div>
         </div>
     </div>

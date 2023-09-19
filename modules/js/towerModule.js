@@ -19,84 +19,217 @@ function tyreID(id) {
     }
 }
 
+function statusID(driverStatus,resultStatus) {
+    if (resultStatus==3) {
+        return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABkAAAAUACAAAAAA618GKAAAAAXNCSVQI5gpbmQAAFApJREFUeNrt2kFOXE0ShdGIJBESEj1g3CwG9sKq2Au1GHqMZLfEhEdGD9ryyB5YqET4z3NWELqI+njUy+gs6+Y//1qj7X1rfP/3f7PsZz/72W+7/SKi9XEACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICAAICgIAAICAACAgAAgIAf09Aymn2c6T97Ccgf7xdVWTf+zKqev+C2M9+9rPf2czW52WNXKvvfStyZJb97Gc/+223X0TM1g9IFccxGj8kjTiOKvvZz37222+/iJg3rZ9A1uXp4aK6PiVVfpyuxij72c9+v9nvfjbe77DfZ0/81vkBJD+eH997/4Cfen/A2M9+X/oB3X6/5oFrvV9EZPMXEV7v3lrfd/1yaz/72c9+W+4Xs/VXNGvM2ftLrjnXGvazn/3st91+ETF7f0UzavX+kmvV6PwqtP3sZz/7nfHC1tdVZPZ+jzyz93vk9rOf/ey3aUB6b9f/SPvZz2n22zYgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAoCAtL6u/oYJy2n2c6T9ttyvd0Ayqnr/gKsi7Wc/+9lvv/0iYq7O163Ikdl3wayRa9nPfvaz3377RcRs/Qgy4jiq9V8wxzGG/exnP/vtt19EzO+Nj6v8OF2N0fgvmHV5eriotJ/97PeL/Y7++91P+31mwpvW163Lp94fMM+P771/Qexnvy/dr/kHtP0+eWL0dv1y2/q+17s3+9nPfvbbcr+YrQuSNedaff9Jucacvb8ktJ/97Ge/8wWk9T/YKlaNzq8aj1q9vyS0n/3sZ7/zLdj6+Sgjs/d75Jm93yO3n/3sZ79NA/JjRafZz5H2s5+AAPAPISAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICgICYAAABAUBAABAQAAQEAAQEAAEBQEAAEBAABAQABAQAAQFAQAAQEAAEBAAEBAABAUBAABAQAAQEAAQEAAEBQEAAEBAABAQABAQAAQFAQAAQEAAEBAAEBAABAUBAABAQAAQEAAQEAAEBQEAAEBAAEBAABAQAAQFAQAAQEAAQEAAEBAABAUBAABAQABAQAAQEAAEBQEAAEBAAEBAABAQAAQFAQAAQEAAQEAAEBAABAUBAABAQABAQAAQEAAEBQEAAEBAAEBAABAQAAQFAQAAQEAAQEAAE5Kdymv0caT/7Ccgfb1cV2fe+jKrevyD2s5/97Hc2s/V5WSPX6nvfihyZZT/72c9+2+0XEbP1A1LFcYzGD0kjjqPKfvazn/322y8i5k3rJ5B1eXq4qK5PSZUfp6sxyn72s99v9rufjfc77PfZE791fgDJj+fH994/4KfeHzD2s9+XfkC336954FrvFxHZ/EWE17u31vddv9zaz372s9+W+8Vs/RXNGnP2/pJrzrWG/exnP/ttt19EzN5f0Yxavb/kWjU6vwptP/vZz35nvLD1dRWZvd8jz+z9Hrn97Gc/+20akN7b9T/SfvZzmv22DQgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICCtr6u/YcJymv0cab8t9+sdkIyq3j/gqkj72c9+9ttvv4iYq/N1K3Jk9l0wa+Ra9rOf/ey3334RMVs/gow4jmr9F8xxjGE/+9nPfvvtFxHze+PjKj9OV2M0/gtmXZ4eLirtZz/7/WK/o/9+99N+n5nwpvV16/Kp9wfM8+N7718Q+9nvS/dr/gFtv0+eGL1dv9y2vu/17s1+9rOf/bbcL2brgmTNuVbff1KuMWfvLwntZz/72e98AWn9D7aKVaPzq8ajVu8vCe1nP/vZ73wLtn4+ysjs/R55Zu/3yO1nP/vZb9OA/FjRafZzpP3sJyAA/EMICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgICYAQEAAEBAABAQAAQEAAQFAQAAQEAAEBAABAQABAUBAABAQAAQEAAEBAAEBQEAAEBAABAQAAQEAAQFAQAAQEAAEBAABAQABAUBAABAQAAQEAAEBAAEBQEAAEBAABAQAAQEAAQFAQAAQEAAEBAAEBAABAUBAABAQAAQEAAQEAAEBQEAAEBAABAQABAQAAQFAQAAQEAAEBAAEBAABAUBAABAQAAQEAAQEAAEBQEAAEBAABAQABAQAAQFAQAAQEAAEBAAEBAABAUBAABAQAAQEAAQEAAH5qZxmP0faz34C8sfbVUX2vS+jqvcviP3sZz/7nc1sfV7WyLX63rciR2bZz372s992+0XEbP2AVHEco/FD0ojjqLKf/exnv/32i4h50/oJZF2eHi6q61NS5cfpaoyyn/3s95v97mfj/Q77ffbEb50fQPLj+fG99w/4qfcHjP3s96Uf0O33ax641vtFRDZ/EeH17q31fdcvt/azn/3st+V+MVt/RbPGnL2/5JpzrWE/+9nPftvtFxGz91c0o1bvL7lWjc6vQtvPfvaz3xkvbH1dRWbv98gze79Hbj/72c9+mwak93b9j7Sf/Zxmv20DAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAISOvr6m+YsJxmP0fab8v9egcko6r3D7gq0n72s5/99tsvIubqfN2KHJl9F8wauZb97Gc/++23X0TM1o8gI46jWv8Fcxxj2M9+9rPffvtFxPze+LjKj9PVGI3/glmXp4eLSvvZz36/2O/ov9/9tN9nJrxpfd26fOr9AfP8+N77F8R+9vvS/Zp/QNvvkydGb9cvt63ve717s5/97Ge/LfeL2bogWXOu1feflGvM2ftLQvvZz372O19AWv+DrWLV6Pyq8ajV+0tC+9nPfvY734Ktn48yMnu/R57Z+z1y+9nPfvbbNCA/VnSa/RxpP/sJCAD/EAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAiICQAQEAAEBAABAUBAAEBAABAQAAQEAAEBQEAAQEAAEBAABAQAAQFAQABAQAAQEAAEBAABAUBAAEBAABAQAAQEAAEBQEAAQEAAEBAABAQAAQFAQABAQAAQEAAEBAABAUBAAEBAABAQAAQEAAEBAAEBQEAAEBAABAQAAQEAAQFAQAAQEAAEBAABAQABAUBAABAQAAQEAAEBAAEBQEAAEBAABAQAAQEAAQFAQAAQEAAEBAABAQABAUBAABAQAAQEAAEBAAEBQEAAEBAABAQAAQEAAQFAQH4qp9nPkfazn4D88XZVkX3vy6jq/QtiP/vZz35nM1uflzVyrb73rciRWfazn/3st91+ETFbPyBVHMdo/JA04jiq7Gc/+9lvv/0iYt60fgJZl6eHi+r6lFT5cboao+xnP/v9Zr/72Xi/w36fPfFb5weQ/Hh+fO/9A37q/QFjP/t96Qd0+/2aB671fhGRzV9EeL17a33f9cut/exnP/ttuV/M1l/RrDFn7y+55lxr2M9+9rPfdvtFxOz9Fc2o1ftLrlWj86vQ9rOf/ex3xgtbX1eR2fs98sze75Hbz372s9+mAem9Xf8j7Wc/p9lv24AAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgAAgIAAgIAAICgIAAICAACAgACAgAAgKAgAAgIAAICAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAICAAICAACAgAAgKAgAAgIAAgIAAICAACAoCAACAgACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAoCAAICAACAgAAgIAAICgIAAgIAAICAACAgAAgKAgACAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAICAAICgIAAICAACAgAAgIAAgKAgAAgIAAICAACAgACAoCAACAgAAgIAAJiAgAEBAABAUBAABAQAPi//wG0RqOPbxjXrgAAAABJRU5ErkJggg==";
+    }
+    if (resultStatus==4) {
+        return; //Drapeau DNF
+    }
+    if (resultStatus==5) {
+        return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQMAAADOtka5AAAAB3RJTUUH2wIbDwcG5IuxfQAAAAZQTFRFAAAA////pdmf3QAAAAFiS0dEAf8CLd4AAAA2SURBVBgZ7cEBAQAAAIKg/q92SMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM4FggAAAbUHaq4AAAAASUVORK5CYII=";
+    }
+    if (resultStatus==7) {
+        return; //Drapeau RET
+    }
+    if (resultStatus==0 || resultStatus==1 || resultStatus==6) {
+        return "";
+    }
+    if (driverStatus==0) {
+        return; //ingarage
+    }
+    if (driverStatus==1) {
+        return; //Flying lap
+    }
+    if (driverStatus==2) {
+        return; //In lap
+    }
+    if (driverStatus==3) {
+        return; //outlap
+    }
+    if (driverStatus==4) {
+        return; //on track
+    }
+    return; //rien
+}
+
 /**
  * Update the tower module
  * Uses the lapData packet
  * @param {Object} data 
  */
 function updateTower(data) {
-    if (carStatus==undefined) {
+    if (carStatus==undefined || session==undefined) {
         return;
     }
-    var ranking = Array(participants.length).fill(undefined);
-    function buildFloor(name,teamcolor,gaptonext,gaptolead,pos,pitnumber,startpos,pitting,lastlapTime,tyre) {
-        let floor = document.createElement("div");
-        floor.setAttribute("class","floorTOWERMODULE");
-        function buildDiv(className,content="",additionalTreatement=function(){}) {
-            let div = document.createElement("div");
-            div.setAttribute("class",className);
-            div.textContent = content;
-            additionalTreatement(div);
-            floor.append(div);
-        }
-        buildDiv("teamBarTOWERMODULE","",function (div) {
-            div.style.backgroundColor = teamcolor;
-        });
-        buildDiv("driverNameTOWERMODULE",name.toUpperCase());
-        buildDiv("gapToNextTOWERMODULE",gaptonext, function (div) {
-            if (pitting!=0) {
-                div.textContent="";
-            }
-        });
-        buildDiv("gapToLeaderTOWERMODULE",gaptolead, function (div) {
-            if (pitting!=0) {
-                div.textContent="";
-            }
-        });
-        if (pitting!=0) {
-            buildDiv("pittingTOWERMODULE","IN PIT");
-        }
-        buildDiv("positionTOWERMODULE","P"+pos, function (div) {
-            let subdiv = document.createElement("div");
-            subdiv.setAttribute("class","startPositionTOWERMODULE");
-            let diff = startpos - pos
-            if (diff > 0) {
-                subdiv.textContent="+"+diff;
-            } else if (diff==0) {
-                subdiv.textContent="+"+diff;
-                subdiv.style.color="white";
-            } else {
-                subdiv.textContent=diff;
-                subdiv.style.color="red";
-            }
-            div.append(subdiv);
-        });
-        buildDiv("pitNumberTOWERMODULE", "Pits : "+pitnumber);
-        buildDiv("lastLapTimeTOWERMODULE",lastlapTime);
-        buildDiv("tyreCompoundTOWERMODULE","", function (div) {
-            let subdiv = document.createElement("img");
-            subdiv.setAttribute("src",tyre);
-            subdiv.setAttribute("style","height:inherit");
-            div.append(subdiv);
-        });
-        ranking[pos]=floor;
+    function buildDiv(floor,className,content="",additionalTreatement=function(){}) {
+        let div = document.createElement("div");
+        div.setAttribute("class",className);
+        div.textContent = content;
+        additionalTreatement(div);
+        floor.append(div);
     }
-    function timeFormat(time) {
+    function msToMinSecMs(time) {
         var min = Math.floor(time / 60000);
         var sec = Math.floor((time - min * 60000) / 1000).toString();
         var ms = (time - (min * 60000) - (sec * 1000)).toString();
         sec = (sec.length==1)? "0" + sec: sec;
         ms = (ms.length==2)? "0" + ms : (ms.length==1)? "00" + ms: ms ;
-        return min + ":" + sec + ":" + ms
+        return min + ":" + sec + "." + ms
     }
-    for (let i=0; i<participants.length; i++) {
-        let fullData = data.lapData[i];
-        if (participants[i].name!=""){
-            buildFloor(participants[i].name.substring(0,3),participants[i].teamColor,timeFormat(fullData.deltaToCarInFrontInMS),
-            timeFormat(fullData.deltaToRaceLeaderInMS),fullData.carPosition,fullData.numPitStops,fullData.gridPosition,
-            fullData.pitStatus, timeFormat(fullData.lastLapTimeInMS), tyreID(carStatus.carStatusData[i].visualTyreCompound));
+    function gapFormat(time) {
+        var min = Math.floor(time / 60000);
+        var sec = Math.floor((time - min * 60000) / 1000).toString();
+        var ms = (time - (min * 60000) - (sec * 1000)).toString();
+        sec = (sec.length==1 && min!=0)? "0" + sec: sec;
+        ms = (ms.length==2)? "0" + ms : (ms.length==1)? "00" + ms: ms ;
+        return (min==0)? "+" + sec + "." + ms : "+"+ min + ":" + sec + "." + ms
+    }
+    var ranking = Array(participants.length).fill(undefined);
+    function updateTowerRace() {
+        function buildFloor(name,teamcolor,gaptonext,gaptolead,pos,pitnumber,startpos,pitting,lastlapTime,tyre) {
+            let floor = document.createElement("div");
+            floor.setAttribute("class","floorTOWERMODULE");
+            buildDiv(floor,"teamBarTOWERMODULE","",function (div) {
+                div.style.backgroundColor = teamcolor;
+            });
+            buildDiv(floor,"driverNameTOWERMODULE",name.toUpperCase());
+            buildDiv(floor,"gapToNextTOWERMODULE",gaptonext, function (div) {
+                if (pitting!=0) {
+                    div.textContent="";
+                }
+            });
+            buildDiv(floor,"gapToLeaderTOWERMODULE",gaptolead, function (div) {
+                if (pitting!=0) {
+                    div.textContent="";
+                }
+            });
+            if (pitting!=0) {
+                buildDiv(floor,"pittingTOWERMODULE","IN PIT");
+            }
+            buildDiv(floor,"positionTOWERMODULE","P"+pos, function (div) {
+                let subdiv = document.createElement("div");
+                subdiv.setAttribute("class","startPositionTOWERMODULE");
+                let diff = startpos - pos
+                if (diff > 0) {
+                    subdiv.textContent="+"+diff;
+                } else if (diff==0) {
+                    subdiv.textContent="+"+diff;
+                    subdiv.style.color="white";
+                } else {
+                    subdiv.textContent=diff;
+                    subdiv.style.color="red";
+                }
+                div.append(subdiv);
+            });
+            buildDiv(floor,"pitNumberTOWERMODULE", "Pits : "+pitnumber);
+            buildDiv(floor,"lastLapTimeTOWERMODULE",lastlapTime);
+            buildDiv(floor,"tyreCompoundTOWERMODULE","", function (div) {
+                let subdiv = document.createElement("img");
+                subdiv.setAttribute("src",tyre);
+                subdiv.setAttribute("style","height:inherit");
+                div.append(subdiv);
+            });
+            ranking[pos]=floor;
+        }
+        for (let i=0; i<participants.length; i++) {
+            let fullData = data.lapData[i];
+            if (participants[i].name!=""){
+                buildFloor(participants[i].name.substring(0,3),participants[i].teamColor,gapFormat(fullData.deltaToCarInFrontInMS),
+                gapFormat(fullData.deltaToRaceLeaderInMS),fullData.carPosition,fullData.numPitStops,fullData.gridPosition,
+                fullData.pitStatus, msToMinSecMs(fullData.lastLapTimeInMS), tyreID(carStatus.carStatusData[i].visualTyreCompound));
+            }
         }
     }
+    function updateTowerQuali() {
+        function getBestLap(carIdx) {
+            var hstry = lapDataHistory[carIdx];
+            return hstry.lapHistoryData[hstry.bestLapTimeLapNum].lapTimeInMS;
+        }
+        function buildFloor(teamcolor,name,gaptonext,gaptolead,pos,bestLap,status,tyre) {
+            let floor = document.createElement("div");
+            floor.setAttribute("class","floorTOWERMODULE");
+            buildDiv(floor,"teamBarTOWERMODULE","",function (div) {
+                div.style.backgroundColor = teamcolor;
+            });
+            buildDiv(floor,"driverNameTOWERMODULE",name.toUpperCase());
+            buildDiv(floor,"gapToNextTOWERMODULE",gaptonext);
+            buildDiv(floor,"gapToLeaderTOWERMODULE",gaptolead);
+            buildDiv(floor,"positionTOWERMODULE","P"+pos);
+            buildDiv(floor,"bestLapQualiTOWERMODULE",bestLap);
+            buildDiv(floor,"statusTOWERMODULE","", function (div) {
+                let subdiv = document.createElement("img");
+                subdiv.setAttribute("src",status);
+                subdiv.setAttribute("style","height:inherit");
+                div.append(subdiv);
+            });
+            buildDiv(floor,"tyreCompoundTOWERMODULE","", function (div) {
+                let subdiv = document.createElement("img");
+                subdiv.setAttribute("src",tyre);
+                subdiv.setAttribute("style","height:inherit");
+                div.append(subdiv);
+            });
+            ranking[pos]=floor;
+        }
+        for (let i=0; i<participants.length; i++) {
+            let fullData = data.lapData[i];
+            if (participants[i].name!=""){
+                buildFloor(participants[i].teamColor,participants[i].name.substring(0,3),gapFormat(fullData.deltaToCarInFrontInMS),
+                gapFormat(fullData.deltaToRaceLeaderInMS),fullData.carPosition,msToMinSecMs(getBestLap(i)),
+                statusID(fullData.driverStatus,fullData.resultStatus),tyreID(carStatus.carStatusData[i].visualTyreCompound))
+            }
+        }
+    }
+    function updateTowerPractice() {
+        function getBestLap(carIdx) {
+            var hstry = lapDataHistory[carIdx];
+            return hstry.lapHistoryData[hstry.bestLapTimeLapNum].lapTimeInMS;
+        }
+        function buildFloor(teamcolor,name,gaptonext,gaptolead,pos,bestLap,lastLap,status,tyre) {
+            let floor = document.createElement("div");
+            floor.setAttribute("class","floorTOWERMODULE");
+            buildDiv(floor,"teamBarTOWERMODULE","",function (div) {
+                div.style.backgroundColor = teamcolor;
+            });
+            buildDiv(floor,"driverNameTOWERMODULE",name.toUpperCase());
+            buildDiv(floor,"gapToNextTOWERMODULE",gaptonext);
+            buildDiv(floor,"gapToLeaderTOWERMODULE",gaptolead);
+            buildDiv(floor,"positionPracticeTOWERMODULE","P"+pos);
+            buildDiv(floor,"bestLapPracticeTOWERMODULE",bestLap);
+            buildDiv(floor,"lastLapPracticeTOWERMODULE",lastLap);
+            buildDiv(floor,"statusTOWERMODULE","", function (div) {
+                let subdiv = document.createElement("img");
+                subdiv.setAttribute("src",status);
+                subdiv.setAttribute("style","height:inherit");
+                div.append(subdiv);
+            });
+            buildDiv(floor,"tyreCompoundTOWERMODULE","", function (div) {
+                let subdiv = document.createElement("img");
+                subdiv.setAttribute("src",tyre);
+                subdiv.setAttribute("style","height:inherit");
+                div.append(subdiv);
+            });
+            ranking[pos]=floor;
+        }
+        for (let i=0; i<participants.length; i++) {
+            let fullData = data.lapData[i];
+            if (participants[i].name!=""){
+                buildFloor(participants[i].teamColor,participants[i].name.substring(0,3),gapFormat(fullData.deltaToCarInFrontInMS),
+                gapFormat(fullData.deltaToRaceLeaderInMS),fullData.carPosition,msToMinSecMs(getBestLap(i)),msToMinSecMs(fullData.lastLapTimeInMS),
+                statusID(fullData.driverStatus,fullData.resultStatus),tyreID(carStatus.carStatusData[i].visualTyreCompound))
+            }
+        }
+    }
+    
+    var type = session.sessionType;
+    if (type>=10 && type<=12) {
+        updateTowerRace();
+    } else if ((type>=1 && type <=4) || type==13) {
+        updateTowerPractice();
+    } else if (type>=5 && type<=9) {
+        updateTowerQuali();
+    }
+
     let content = document.getElementById("contentTOWERMODULE");
     content.innerHTML = "";
     for (let j=0; j<participants.length; j++) {

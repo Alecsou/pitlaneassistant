@@ -14,6 +14,7 @@ var carTelemetry;
 var carDamage;
 var session;
 var lapData;
+var lapDataHistory = Array(24).fill(undefined);
 
 function showModuleSelector(t) {
     t.innerHTML = moduleSelector_HTMLFILE;
@@ -79,6 +80,7 @@ function redirect(data) {
             updateDamage();
             break;
         case "11":
+            lapDataHistory[data.carIdx]=data;
             break;
         case "12":
             break;
