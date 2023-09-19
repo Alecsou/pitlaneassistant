@@ -81,6 +81,7 @@ function redirect(data) {
             break;
         case "11":
             lapDataHistory[data.carIdx]=data;
+            updateTower();
             break;
         case "12":
             break;
@@ -90,4 +91,13 @@ function redirect(data) {
             console.log("def");
             break;
     }
+}
+
+function swapToScreen() {
+    document.getElementById("boxes").style.right = "100%";
+    document.getElementById("screen1").style.right = "0%";
+}
+function swapToBoxes() {
+    document.getElementById("boxes").style.right = "0%";
+    document.getElementById("screen1").style.right = "-100%";
 }

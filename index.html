@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Test sample</title>
+    <title>Pit Lane Assistant</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap');
@@ -48,6 +48,12 @@
             <div class="box bottom left" onclick="showModule(this,clockMapModule_HTMLFILE)"></div>
             <div class="box bottom mid" onclick="showModule(this,FIAeventModule_HTMLFILE)"></div>
             <div class="box bottom right" onclick="showModule(this,damageModule_HTMLFILE)"></div>
+            <div class="arrowRight" onclick="swapToScreen();"></div>
+        </div>
+
+        <div id="screen1">
+            <div class="arrowLeft" onclick="swapToBoxes();"></div>
+            foo
         </div>
     </div>
 </body>
