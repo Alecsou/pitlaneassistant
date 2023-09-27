@@ -53,6 +53,23 @@ function statusID(driverStatus,resultStatus) {
     return; //rien
 }
 
+function msToMinSecMs(time) {
+    var min = Math.floor(time / 60000);
+    var sec = Math.floor((time - min * 60000) / 1000).toString();
+    var ms = (time - (min * 60000) - (sec * 1000)).toString();
+    sec = (sec.length==1)? "0" + sec: sec;
+    ms = (ms.length==2)? "0" + ms : (ms.length==1)? "00" + ms: ms ;
+    return min + ":" + sec + "." + ms
+}
+function gapFormat(time) {
+    var min = Math.floor(time / 60000);
+    var sec = Math.floor((time - min * 60000) / 1000).toString();
+    var ms = (time - (min * 60000) - (sec * 1000)).toString();
+    sec = (sec.length==1 && min!=0)? "0" + sec: sec;
+    ms = (ms.length==2)? "0" + ms : (ms.length==1)? "00" + ms: ms ;
+    return (min==0)? "+" + sec + "." + ms : "+"+ min + ":" + sec + "." + ms
+}
+
 /**
  * Update the tower module
  * Uses the lapData packet
@@ -68,22 +85,6 @@ function updateTower(data) {
         div.textContent = content;
         additionalTreatement(div);
         floor.append(div);
-    }
-    function msToMinSecMs(time) {
-        var min = Math.floor(time / 60000);
-        var sec = Math.floor((time - min * 60000) / 1000).toString();
-        var ms = (time - (min * 60000) - (sec * 1000)).toString();
-        sec = (sec.length==1)? "0" + sec: sec;
-        ms = (ms.length==2)? "0" + ms : (ms.length==1)? "00" + ms: ms ;
-        return min + ":" + sec + "." + ms
-    }
-    function gapFormat(time) {
-        var min = Math.floor(time / 60000);
-        var sec = Math.floor((time - min * 60000) / 1000).toString();
-        var ms = (time - (min * 60000) - (sec * 1000)).toString();
-        sec = (sec.length==1 && min!=0)? "0" + sec: sec;
-        ms = (ms.length==2)? "0" + ms : (ms.length==1)? "00" + ms: ms ;
-        return (min==0)? "+" + sec + "." + ms : "+"+ min + ":" + sec + "." + ms
     }
     var ranking = Array(participants.length).fill(undefined);
     function updateTowerRace() {

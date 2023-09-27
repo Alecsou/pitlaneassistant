@@ -65,7 +65,7 @@ function updateWeather () {
         };
         rainPercentageChart = new Chart(document.getElementById("rainPercentageChart"),configRain);
     } else {
-        rainPercentageChart.data.datasets.data=rainPercentages;
+        rainPercentageChart.data.datasets[0].data=rainPercentages;
         rainPercentageChart.update();
     }
     if (trackTempChart==undefined) {
@@ -85,7 +85,7 @@ function updateWeather () {
         };
         trackTempChart = new Chart(document.getElementById("trackTempChart"),configTrack);
     } else {
-        trackTempChart.data.datasets.data=trackTemperatures;
+        trackTempChart.data.datasets[0].data=trackTemperatures;
         trackTempChart.update();
     }
     if (airTempChart==undefined) {
@@ -105,7 +105,7 @@ function updateWeather () {
         };
         airTempChart = new Chart(document.getElementById("airTempChart"),configAir);
     } else {
-        airTempChart.data.datasets.data=airTemperatures;
+        airTempChart.data.datasets[0].data=airTemperatures;
         airTempChart.update();
     }
     
