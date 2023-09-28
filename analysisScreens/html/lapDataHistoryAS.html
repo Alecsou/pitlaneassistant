@@ -1,4 +1,8 @@
 <style>
+    :root {
+        --tower-unit-width: 80px;
+        --distance-width: 50%;
+    }
     .contentLAPDATAHISTORYAS {
         position: absolute;
         top: 0;
@@ -13,7 +17,7 @@
         left: 0;
         height: 100%;
         width: calc(100% / 3 * 2);
-
+        overflow-y: auto;
     }
     .diffLAPDATAHISTORYAS {
         position: absolute;
@@ -22,17 +26,18 @@
         height: 100%;
         width: calc(100% / 3);
         border-left: 1px solid #555555;
+        overflow-y: auto;
     }
     .floorLAPDATAHISTORYAS {
         position: relative;
-        width: 100%;
-        height: 70px;
+        width: calc(var(--tower-unit-width) * 12);
+        height: 50px;
         border-bottom: 1px solid #555555;
     }
     .teamColorLAPDATAHISTORYAS {
         position: absolute;
         background-color: #900000;
-        width: 8px;
+        width: 6px;
         height: 80%;
         left: 0;
         top: 10%;
@@ -41,50 +46,18 @@
         position: absolute;
         color: white;
         font-size: 30px;
-        width: 60px;
+        width: var(--tower-unit-width);
         height: 100%;
-        left: 10px;
+        left: 0px;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
     .bestTimeLAPDATAHISTORYAS {
         position: absolute;
-        left: 70px;
+        left: calc(var(--tower-unit-width));
         height: 100%;
-        width: 60px;
-        display: flex;
-        justify-content: center;
-        align-items:center;
-        border-left: 1px solid #555555;
-        color: white;
-    }
-    .bestS1LAPDATAHISTORYAS {
-        position: absolute;
-        left: 130px;
-        height: 100%;
-        width: 60px;
-        display: flex;
-        justify-content: center;
-        align-items:center;
-        border-left: 1px solid #555555;
-        color: white;
-    }
-    .bestS2LAPDATAHISTORYAS {
-        position: absolute;
-        left: 190px;
-        height: 100%;
-        width: 60px;
-        display: flex;
-        justify-content: center;
-        align-items:center;
-        border-left: 1px solid #555555;
-        color: white;
-    }
-    .bestS3LAPDATAHISTORYAS {
-        position: absolute;
-        left: 250px;
-        height: 100%;
-        width: 60px;
+        width: var(--tower-unit-width);
         display: flex;
         justify-content: center;
         align-items:center;
@@ -93,9 +66,9 @@
     }
     .gapToBestLAPDATAHISTORYAS {
         position: absolute;
-        left: 310px;
+        left: calc(var(--tower-unit-width) * 2);
         height: 100%;
-        width: 60px;
+        width: var(--tower-unit-width);
         display: flex;
         justify-content: center;
         align-items:center;
@@ -104,44 +77,287 @@
     }
     .gapToNextLAPDATAHISTORYAS {
         position: absolute;
-        left: 370px;
+        left: calc(var(--tower-unit-width) * 3);
         height: 100%;
-        width: 60px;
+        width: var(--tower-unit-width);
         display: flex;
         justify-content: center;
         align-items:center;
         border-left: 1px solid #555555;
         color: white;
     }
-    .graphLAPDATAHISTORYAS {
+    .bestS1LAPDATAHISTORYAS {
         position: absolute;
-        left: 430px;
+        left: calc(var(--tower-unit-width) * 4);
         height: 100%;
-        width: 60px;
+        width: var(--tower-unit-width);
         display: flex;
         justify-content: center;
         align-items:center;
         border-left: 1px solid #555555;
-        background: yellow;
+        color: white;
     }
-    
-    
+    .bestS2LAPDATAHISTORYAS {
+        position: absolute;
+        left: calc(var(--tower-unit-width) * 5);
+        height: 100%;
+        width: var(--tower-unit-width);
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        border-left: 1px solid #555555;
+        color: white;
+    }
+    .bestS3LAPDATAHISTORYAS {
+        position: absolute;
+        left: calc(var(--tower-unit-width) * 6);
+        height: 100%;
+        width: var(--tower-unit-width);
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        border-left: 1px solid #555555;
+        color: white;
+    }
+    .lastLapLAPDATAHISTORYAS {
+        position: absolute;
+        left: calc(var(--tower-unit-width) * 7);
+        height: 100%;
+        width: var(--tower-unit-width);
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        border-left: 1px solid #555555;
+        color: white;
+    }
+    .currentS1LAPDATAHISTORYAS {
+        position: absolute;
+        left: calc(var(--tower-unit-width) * 8);
+        height: 100%;
+        width: var(--tower-unit-width);
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        border-left: 1px solid #555555;
+        color: white;
+    }
+    .currentS2LAPDATAHISTORYAS {
+        position: absolute;
+        left: calc(var(--tower-unit-width) * 9);
+        height: 100%;
+        width: var(--tower-unit-width);
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        border-left: 1px solid #555555;
+        color: white;
+    }
+    .currentS3LAPDATAHISTORYAS {
+        position: absolute;
+        left: calc(var(--tower-unit-width) * 10);
+        height: 100%;
+        width: var(--tower-unit-width);
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        border-left: 1px solid #555555;
+        color: white;
+    }
+    .tyreHistoryLAPDATAHISTORYAS {
+        position: absolute;
+        left: calc(var(--tower-unit-width) * 11);
+        height: 100%;
+        width: var(--tower-unit-width);
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        border-left: 1px solid #555555;
+        color: white;
+    }
+    .timeLAPDATAHISTORYAS {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+    }
+    .gapLAPDATAHISTORYAS {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+    }
+    .floorLegendLAPDATAHISTORYAS {
+        position: relative;
+        width: calc(var(--tower-unit-width) * 12);
+        height: 50px;
+        border-bottom: 1px solid #555555;
+        font-size: 14px;
+    }
+    .graphTimeLAPDATAHISTORYAS{
+        position: relative;
+        top: 10px;
+        left: 10px;
+        width: calc(100% - 20px);
+        aspect-ratio : 3 / 2;
+    }
+    .strikingDistanceLAPDATAHISTORYAS {
+        position: relative;
+        top: calc(10px + 20px);
+        left: 10px;
+        width: calc(100% - 20px);
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .recapLAPDATAHISTORYAS{
+        position: relative;
+        top: calc(30px + 20px);
+        left: 10px;
+        width: calc(100% - 20px);
+        height: 80px;
+        background: blue;
+    }
+    .timeTableLAPDATAHISTORYAS{
+        position: relative;
+        top: calc(50px + 20px);
+        left: 10px;
+        width: calc(100% - 20px);
+        height: 100%;
+        background: limegreen;
+    }
+    .textSDLAPDATAHISTORYAS {
+        color: white;
+        font-size: 25px;
+    }
+    .barLAPDATAHISTORYAS {
+        position: absolute;
+        bottom: 10px;
+        width: 80%;
+        background: radial-gradient(circle, rgba(0,255,0,1) 0%, rgba(255,0,0,1) 70%, rgba(255,0,0,0) 100%);
+        height: 8px;
+    }
+    .hideBarLeftLAPDATAHISTORYAS {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        background: linear-gradient(90deg, rgba(51,51,51,1) 0%, rgba(51,51,51,1) 85%, rgba(51,51,51,0) 100%);
+        height: 8px;
+        width: var(--distance-width);
+    }
+    .hideBarRightLAPDATAHISTORYAS {
+        position: absolute;
+        bottom: 10px;
+        right: 0;
+        background: linear-gradient(-90deg, rgba(51,51,51,1) 0%, rgba(51,51,51,1) 85%, rgba(51,51,51,0) 100%);
+        height: 8px;
+        width: var(--distance-width);
+        
+    }
+    .teamColorDriverLAPDATAHISTORYAS {
+        position: absolute;
+        left: 0;
+        background: red;
+        width: 8px;
+        height: 80%;
+    }
+    .teamColorOpponentLAPDATAHISTORYAS {
+        position: absolute;
+        right: 0;
+        background: cyan;
+        width: 8px;
+        height: 80%;
+    }
+    .nameDriverLAPDATAHISTORYAS {
+        position: absolute;
+        left: 15px;
+        top: 10%;
+        color: white;
+    }
+    .nameOpponentLAPDATAHISTORYAS {
+        position: absolute;
+        right: 15px;
+        top: 10%;
+        color: white;
+    }
 </style>
 
 
 <div class="contentLAPDATAHISTORYAS">
     <div class="towerLAPDATAHISTORYAS">
+        <div class="floorLegendLAPDATAHISTORYAS">
+            <div class="nameLAPDATAHISTORYAS">Name</div>
+            <div class="bestTimeLAPDATAHISTORYAS">Best Time</div>
+            <div class="gapToBestLAPDATAHISTORYAS">Gap to best</div>
+            <div class="gapToNextLAPDATAHISTORYAS">Gap to next</div>
+            <div class="bestS1LAPDATAHISTORYAS">
+                <div class="timeLAPDATAHISTORYAS">Best S1</div>
+                <div class="gapLAPDATAHISTORYAS">Gap to best</div>
+            </div>
+            <div class="bestS2LAPDATAHISTORYAS">
+                <div class="timeLAPDATAHISTORYAS">Best S2</div>
+                <div class="gapLAPDATAHISTORYAS">Gap to best</div>
+            </div>
+            <div class="bestS3LAPDATAHISTORYAS">
+                <div class="timeLAPDATAHISTORYAS">Best S3</div>
+                <div class="gapLAPDATAHISTORYAS">Gap to best</div>
+            </div>
+            <div class="lastLapLAPDATAHISTORYAS">Last lap</div>
+            <div class="currentS1LAPDATAHISTORYAS">Current S1</div>
+            <div class="currentS2LAPDATAHISTORYAS">Current S2</div>
+            <div class="currentS3LAPDATAHISTORYAS">Current S3</div>
+            <div class="tyreHistoryLAPDATAHISTORYAS">Tyre history</div>
+        </div>
         <div class="floorLAPDATAHISTORYAS">
             <div class="teamColorLAPDATAHISTORYAS"></div>
             <div class="nameLAPDATAHISTORYAS">SOU</div>
             <div class="bestTimeLAPDATAHISTORYAS">1:23.456</div>
-            <div class="bestS1LAPDATAHISTORYAS">12.345</div>
-            <div class="bestS2LAPDATAHISTORYAS">23.789</div>
-            <div class="bestS3LAPDATAHISTORYAS">69.420</div>
             <div class="gapToBestLAPDATAHISTORYAS">+1.101</div>
             <div class="gapToNextLAPDATAHISTORYAS">+0.902</div>
-            <div class="graphLAPDATAHISTORYAS"></div>
+            <div class="bestS1LAPDATAHISTORYAS">
+                <div class="timeLAPDATAHISTORYAS">12.345</div>
+                <div class="gapLAPDATAHISTORYAS">+0.056</div>
+            </div>
+            <div class="bestS2LAPDATAHISTORYAS">
+                <div class="timeLAPDATAHISTORYAS">23.789</div>
+                <div class="gapLAPDATAHISTORYAS">+0.654</div>
+            </div>
+            <div class="bestS3LAPDATAHISTORYAS">
+                <div class="timeLAPDATAHISTORYAS">69.420</div>
+                <div class="gapLAPDATAHISTORYAS">+18.567</div>
+            </div>
+            <div class="lastLapLAPDATAHISTORYAS">1:24.456</div>
+            <div class="currentS1LAPDATAHISTORYAS">13.468</div>
+            <div class="currentS2LAPDATAHISTORYAS">24.680</div>
+            <div class="currentS3LAPDATAHISTORYAS">69.421</div>
+            <div class="tyreHistoryLAPDATAHISTORYAS">HSSM</div>
         </div>
     </div>
-    <div class="diffLAPDATAHISTORYAS"></div>
+    <div class="diffLAPDATAHISTORYAS">
+        <div class="graphTimeLAPDATAHISTORYAS">
+            <canvas id="timeEvolutionChart"></canvas>
+        </div>
+        <div class="strikingDistanceLAPDATAHISTORYAS">
+            <div class="textSDLAPDATAHISTORYAS">
+                Striking Distance : 9 Laps
+            </div>
+            <div class="barLAPDATAHISTORYAS"></div>
+            <div class="hideBarLeftLAPDATAHISTORYAS"></div>
+            <div class="hideBarRightLAPDATAHISTORYAS"></div>
+            <div class="teamColorDriverLAPDATAHISTORYAS"></div>
+            <div class="nameDriverLAPDATAHISTORYAS">AlecsouTV</div>
+            <div class="teamColorOpponentLAPDATAHISTORYAS"></div>
+            <div class="nameOpponentLAPDATAHISTORYAS">OpponentName</div>
+        </div>
+        <div class="recapLAPDATAHISTORYAS"></div>
+        <div class="timeTableLAPDATAHISTORYAS"></div>
+    </div>
 </div>

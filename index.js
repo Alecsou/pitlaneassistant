@@ -15,6 +15,7 @@ var carDamage;
 var session;
 var lapData;
 var lapDataHistory = Array(24).fill(undefined);
+var driverCarIdx;
 
 function showModuleSelector(t) {
     t.innerHTML = moduleSelector_HTMLFILE;
@@ -32,6 +33,7 @@ function leaveModule(module) {
 
 
 function redirect(data) {
+    driverCarIdx = data.header.playerCarIndex;
     switch(data.header.packetId) {
         case "0": 
             break;
